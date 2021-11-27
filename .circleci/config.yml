@@ -116,7 +116,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            cat "test pass"
+            echo "test pass"
   deploy_staging:
     executor: ozet-excutor
     parameters:
