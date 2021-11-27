@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { UserState } from 'src/store/user';
 import { sessionList } from './mock';
 
 export class GuestBookApi {
