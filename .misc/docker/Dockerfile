@@ -5,7 +5,6 @@ LABEL title="web"
 LABEL version="1.0"
 
 # Install deps
-RUN yarn
 RUN yarn global add serve
 
 # Init project
@@ -13,6 +12,7 @@ COPY . /app
 
 WORKDIR /app
 
+RUN yarn
 RUN yarn build
 
 EXPOSE 3030
