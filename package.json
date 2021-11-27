@@ -1,0 +1,72 @@
+{
+  "name": "devfest-2021-guestbook",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.3.1",
+    "@types/styled-components": "^5.1.15",
+    "axios": "^0.23.0",
+    "date-fns": "^2.25.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^4.1.17",
+    "inko": "^1.1.1",
+    "query-string": "^7.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
+    "react-intersection-observer": "^8.32.2",
+    "react-lottie": "^1.2.3",
+    "react-rainbow-components": "^1.27.0",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "recoil": "^0.4.1",
+    "recoil-persist": "^3.0.0",
+    "styled-components": "^5.3.1",
+    "swr": "^1.0.1",
+    "typescript": "^4.4.4",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-lottie": "^1.2.6",
+    "@types/styled-components": "^5.1.15",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "prettier": "^2.4.1"
+  }
+}
