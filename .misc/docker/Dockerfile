@@ -13,6 +13,7 @@ COPY . /app
 WORKDIR /app
 
 ENV SKIP_PREFLIGHT_CHECK=true
+ENV CI=false
 
 RUN yarn
 RUN yarn build
