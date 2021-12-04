@@ -1,15 +1,23 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
-import DevTest from '../devTest';
-import List from '../List';
+import { Navigator, Screen } from '@karrotframe/navigator';
+import All from '../List/All';
+import Recommend from '../List/Recommend';
+import Bookmarked from '../List/Bookmarked';
+import parser from 'ua-parser-js';
+
+const IOS = 'iOS';
 
 export const Layout = () => {
+  const { os } = parser(window.navigator.userAgent);
+  const isCupertino = os.name === IOS;
   return (
-    <>
-      <Switch>
-        <Route path={'/dev-test'} component={DevTest} />
-        <Route path={'/list'} component={List} />
-      </Switch>
-    </>
+    <Navigator
+      theme={isCupertino ? 'Cupertino' : 'Android'}
+      onClose={() => console.log('onClose')}
+    >
+      <Screen path={'/list/all'} component={All} />
+      <Screen path={'/list/recommend'} component={Recommend} />
+      <Screen path={'/list/book-marked'} component={Bookmarked} />
+    </Navigator>
   );
 };

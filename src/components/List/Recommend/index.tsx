@@ -1,7 +1,13 @@
 import React from 'react';
+import { ScreenHelmet } from '@karrotframe/navigator';
 
 const Recommend = () => {
-  return <div>Recommend</div>;
+  return (
+    <>
+      <ScreenHelmet title="추천공고" />
+      All
+    </>
+  );
 };
 
 export default Recommend;
