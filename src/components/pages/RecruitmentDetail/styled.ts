@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import sampleImage from '../../Sample/img.png';
 
 export const SectionColumnBar = styled.div`
   width: 1px;
@@ -14,12 +15,25 @@ export const SectionRowBar = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
 `;
 export const RecruitmentWrapper = styled.div`
-  margin: 0px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 120px;
 `;
-export const StyledImageSkeleton = styled.div`
+export const StyledImageWrapper = styled.div`
   height: 347px;
+  background: transparent;
+`;
+
+export const StyledImage = styled.img`
+  box-sizing: border-box;
+  background-size: contain;
+  height: 347px;
+  width: 100%;
   margin: 0 0 16px;
-  background-color: rgba(0, 0, 0, 0.1);
+  //background-color: rgba(0, 0, 0, 0.1);
+
+  background-image: url(${sampleImage});
+  top: 0px;
 `;
 export const StyledMapSkeleton = styled.div`
   height: 150px;

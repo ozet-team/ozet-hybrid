@@ -3,6 +3,7 @@ export interface SignInRequest {
 }
 export interface recruitmentDetail {
   id: string;
+  picture: string;
   title: string;
   city: string;
   manager: string;

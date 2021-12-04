@@ -16,6 +16,7 @@ export const Layout = () => {
         onClick={() =>
           setModal({ ...modal, [MODAL_KEY.NORMAL]: !modal[MODAL_KEY.NORMAL] })
         }
+        style={{ position: 'sticky', top: '0px' }}
       >
         button
       </button>

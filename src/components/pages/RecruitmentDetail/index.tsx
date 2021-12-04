@@ -10,12 +10,13 @@ import {
   RecruitmentWrapper,
   SectionColumnBar,
   SectionRowBar,
-  StyledImageSkeleton,
+  StyledImage,
   StyledMapSkeleton,
 } from './styled';
 import { LayoutContainer } from '../../../styles/layout';
 import { useParams } from 'react-router-dom';
 import { RecruitmentDetailData } from '../../../api/RecruitmentDetailData';
+import DetailFooter from 'src/components/common/DetailFooter';
 
 const RecruitmentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,8 +24,10 @@ const RecruitmentDetail = () => {
 
   return (
     <>
+      <DetailFooter />
       <LayoutContainer>
-        <StyledImageSkeleton />
+        <StyledImage />
+        {/*<styledImage style={{ backgroundImage: 'url()' }} />*/}
         <RecruitmentWrapper>
           <RecruitmentTitle>{data?.title}</RecruitmentTitle>
           <RecruitmentElementWrapper>
