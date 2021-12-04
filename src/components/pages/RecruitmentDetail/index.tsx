@@ -16,7 +16,7 @@ import {
 import { LayoutContainer } from '../../../styles/layout';
 import { useParams } from 'react-router-dom';
 import { RecruitmentDetailData } from '../../../api/RecruitmentDetailData';
-import DetailFooter from 'src/components/common/DetailFooter';
+import DetailBottomBar from 'src/components/common/DetailBottomBar';
 
 const RecruitmentDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,7 +24,7 @@ const RecruitmentDetail = () => {
 
   return (
     <>
-      <DetailFooter />
+      <DetailBottomBar />
       <LayoutContainer>
         <StyledImage />
         {/*<styledImage style={{ backgroundImage: 'url()' }} />*/}
