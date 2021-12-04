@@ -1,35 +1,27 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
-
-import { useRecoilState } from 'recoil';
-import { modalState, MODAL_KEY } from 'src/store/modal';
-import { Modal } from '../common/Modal';
-import { Sample } from '../Sample';
+import { Navigator, Screen } from '@karrotframe/navigator';
+import All from '../List/All';
+import Recommend from '../List/Recommend';
+import Bookmarked from '../List/Bookmarked';
+import parser from 'ua-parser-js';
+const IOS = 'iOS';
 import RecruitmentDetail from '../pages/RecruitmentDetail';
+import DetailBottomBar from '../common/DetailBottomBar';
 
 export const Layout = () => {
-  const [modal, setModal] = useRecoilState(modalState);
-
+  const { os } = parser(window.navigator.userAgent);
+  const isCupertino = os.name === IOS;
   return (
-    <>
-      <button
-        onClick={() =>
-          setModal({ ...modal, [MODAL_KEY.NORMAL]: !modal[MODAL_KEY.NORMAL] })
-        }
-        style={{ position: 'sticky', top: '0px' }}
-      >
-        button
-      </button>
-      {modal.normal && <Modal type={MODAL_KEY.NORMAL} />}
-      <Switch>
-        <Route exact path={'/'} component={Sample} />
-        {/*<Route path={'/recruitment'} component={Recruitment}/>*/}
-        <Route
-          exact
-          path={'/recruitment/detail/:id'}
-          component={RecruitmentDetail}
-        />
-      </Switch>
-    </>
+    <Navigator
+      theme={isCupertino ? 'Cupertino' : 'Android'}
+      onClose={() => console.log('onClose')}
+    >
+      <DetailBottomBar />
+      <Screen path={'/list/all'} component={All} />
+      <Screen path={'/list/recommend'} component={Recommend} />
+      <Screen path={'/list/book-marked'} component={Bookmarked} />
+      {/*<Route path={'/recruitment'} component={Recruitment}/>*/}
+      <Screen path={'/recruitment/detail/:id'} component={RecruitmentDetail} />
+    </Navigator>
   );
 };
