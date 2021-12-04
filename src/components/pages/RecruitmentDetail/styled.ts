@@ -71,4 +71,5 @@ export const RecruitmentMainText = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #000;
+  min-height: 20px;
 `;

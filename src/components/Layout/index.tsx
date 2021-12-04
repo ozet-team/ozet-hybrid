@@ -23,7 +23,11 @@ export const Layout = () => {
       <Switch>
         <Route exact path={'/'} component={Sample} />
         {/*<Route path={'/recruitment'} component={Recruitment}/>*/}
-        <Route path={'/recruitment/detail'} component={RecruitmentDetail} />
+        <Route
+          exact
+          path={'/recruitment/detail/:id'}
+          component={RecruitmentDetail}
+        />
       </Switch>
     </>
   );

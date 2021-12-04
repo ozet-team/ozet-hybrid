@@ -14,51 +14,59 @@ import {
   StyledMapSkeleton,
 } from './styled';
 import { LayoutContainer } from '../../../styles/layout';
+import { useParams } from 'react-router-dom';
+import { RecruitmentDetailData } from '../../../api/RecruitmentDetailData';
 
 const RecruitmentDetail = () => {
+  const { id } = useParams<{ id: string }>();
+  const data = RecruitmentDetailData.find((value) => value.id == id);
+
   return (
     <>
       <LayoutContainer>
         <StyledImageSkeleton />
         <RecruitmentWrapper>
-          <RecruitmentTitle> 채용공고 제목 String</RecruitmentTitle>
+          <RecruitmentTitle>{data?.title}</RecruitmentTitle>
           <RecruitmentElementWrapper>
-            <RecruitmentInfoCategory>shop name</RecruitmentInfoCategory>
+            <RecruitmentInfoCategory>{data?.shopName}</RecruitmentInfoCategory>
             <SectionColumnBar />
-            <RecruitmentInfoCategory>서울 • 강남구</RecruitmentInfoCategory>
+            <RecruitmentInfoCategory>{data?.city}</RecruitmentInfoCategory>
           </RecruitmentElementWrapper>
           <RecruitmentElementWrapper>
             <RecruitmentCategory>담당자</RecruitmentCategory>
-            <RecruitmentCategoryText>담당자 이름 </RecruitmentCategoryText>
-            <RecruitmentCategoryText>010-0000-0000 </RecruitmentCategoryText>
+            <RecruitmentCategoryText>{data?.manager}</RecruitmentCategoryText>
+            <RecruitmentCategoryText>
+              {data?.callNumber}
+            </RecruitmentCategoryText>
           </RecruitmentElementWrapper>
           <SectionRowBar />
           <RecruitmentSubTitle>채용정보</RecruitmentSubTitle>
           <RecruitmentElementWrapper>
             <RecruitmentCategory>마감일</RecruitmentCategory>
-            <RecruitmentCategoryText>2021.01.01</RecruitmentCategoryText>
+            <RecruitmentCategoryText>{data?.deadline}</RecruitmentCategoryText>
           </RecruitmentElementWrapper>
           <RecruitmentElementWrapper>
             <RecruitmentCategory>근무시간</RecruitmentCategory>
-            <RecruitmentCategoryText>10:00 ~ 21:00</RecruitmentCategoryText>
+            <RecruitmentCategoryText>{data?.workTime}</RecruitmentCategoryText>
           </RecruitmentElementWrapper>
           <RecruitmentElementWrapper>
             <RecruitmentCategory>급여</RecruitmentCategory>
-            <RecruitmentCategoryText>240이상</RecruitmentCategoryText>
+            <RecruitmentCategoryText>{data?.pay}</RecruitmentCategoryText>
           </RecruitmentElementWrapper>
           <RecruitmentElementWrapper>
             <RecruitmentCategory>경력</RecruitmentCategory>
-            <RecruitmentCategoryText>디자이너</RecruitmentCategoryText>
+            <RecruitmentCategoryText>{data?.career}</RecruitmentCategoryText>
           </RecruitmentElementWrapper>
           <SectionRowBar />
           <RecruitmentSubTitle>상세공고</RecruitmentSubTitle>
-          <RecruitmentMainText>main text</RecruitmentMainText>
+          {data?.detailText.split('\n').map((line, id) => (
+            <RecruitmentMainText key={id}>{line}</RecruitmentMainText>
+          ))}
+
           <SectionRowBar />
           <RecruitmentElementWrapper>
             <RecruitmentCategory>근무지역</RecruitmentCategory>
-            <RecruitmentCategoryText>
-              서울 강동구 어쩌고 어쩌고
-            </RecruitmentCategoryText>
+            <RecruitmentCategoryText>{data?.workSpace}</RecruitmentCategoryText>
           </RecruitmentElementWrapper>
           <StyledMapSkeleton />
         </RecruitmentWrapper>
