@@ -8,6 +8,11 @@ import {
   ProfileWrapper,
   ProfileTextWrapper,
   ResumeDetailWrapper,
+  ResumeSubTitle,
+  ResumeDetailTitle,
+  ResumeDetailText,
+  ResumeTerm,
+  ResumeBr,
 } from './styled';
 import exProfileImg from '../../../img/profileImg.png';
 import './Resume.css';
@@ -35,7 +40,39 @@ const ResumeWeb = () => {
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
       />
-      <ResumeDetailWrapper></ResumeDetailWrapper>
+      {selectedTab === '상세정보' ? (
+        <ResumeDetailWrapper>
+          <ResumeSubTitle>경력 (1년 4개월)</ResumeSubTitle>
+          <ResumeDetailTitle>준오헤어 잠실롯데월드점 (1년)</ResumeDetailTitle>
+          <ResumeDetailText>
+            스텝 | 헤어, 커트 어시스턴트 및 막내 스텝 교육
+          </ResumeDetailText>
+          <ResumeTerm> 2000.00 ~ 2000.00</ResumeTerm>
+          <ResumeDetailTitle>준오헤어 잠실롯데월드점 (1년)</ResumeDetailTitle>
+          <ResumeDetailText>
+            스텝 | 헤어, 커트 어시스턴트 및 막내 스텝 교육
+          </ResumeDetailText>
+          <ResumeTerm> 2000.00 ~ 2000.00</ResumeTerm>
+          <ResumeBr />
+          <ResumeSubTitle>자격증</ResumeSubTitle>
+          <ResumeDetailTitle>미용사(헤어) 한국기술자격검정원</ResumeDetailTitle>
+          <ResumeTerm> 2000.00 ~ 2000.00</ResumeTerm>
+          <ResumeBr />
+          <ResumeSubTitle>학력</ResumeSubTitle>
+          <ResumeDetailTitle>오젯대학교 미용학과</ResumeDetailTitle>
+          <ResumeTerm> 2000.00 ~ 2000.00</ResumeTerm>
+          <ResumeDetailTitle>오젯고등학교 일반계</ResumeDetailTitle>
+          <ResumeTerm> 2000.00 ~ 2000.00</ResumeTerm>
+          <ResumeBr />
+          <ResumeSubTitle>병역</ResumeSubTitle>
+          <ResumeDetailTitle>해당 없음</ResumeDetailTitle>
+        </ResumeDetailWrapper>
+      ) : null}
+      {selectedTab === 'SNS' ? (
+        <ResumeDetailWrapper>
+          <ResumeSubTitle>instagram.com/hair_ozet/</ResumeSubTitle>
+        </ResumeDetailWrapper>
+      ) : null}
     </>
   );
 };

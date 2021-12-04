@@ -32,5 +32,29 @@ export const ProfileIntroduce = styled.div`
   font-size: 16px;
 `;
 export const ResumeDetailWrapper = styled.div`
+  margin-top: 24px;
   padding: 0px 20px;
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+`;
+export const ResumeSubTitle = styled.div`
+  font-size: 14px;
+`;
+export const ResumeDetailTitle = styled.div`
+  margin-top: 10px;
+  font-size: 14px;
+`;
+export const ResumeDetailText = styled.div`
+  margin-top: 4px;
+  font-size: 14px;
+`;
+export const ResumeTerm = styled.div`
+  margin-top: 4px;
+  font-size: 14px;
+  color: #828282;
+`;
+export const ResumeBr = styled.div`
+  height: 1px;
+  background: black;
+  opacity: 10%;
+  margin: 16px 0px;
 `;
