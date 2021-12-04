@@ -5,6 +5,9 @@ import { theme } from './styles/theme';
 import { SWRConfig } from 'swr';
 import { RecoilRoot } from 'recoil';
 import { Layout } from './components/Layout';
+
+import '@karrotframe/navigator/index.css';
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
