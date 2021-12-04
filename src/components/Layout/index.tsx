@@ -1,27 +1,23 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
-import { useRecoilState } from 'recoil';
-import { modalState, MODAL_KEY } from 'src/store/modal';
-import { Modal } from '../common/Modal';
+import { Navigator, Screen } from '@karrotframe/navigator';
+import All from '../List/All';
+import Recommend from '../List/Recommend';
+import Bookmarked from '../List/Bookmarked';
+import parser from 'ua-parser-js';
 
-import { Sample } from '../Sample';
+const IOS = 'iOS';
 
 export const Layout = () => {
-  const [modal, setModal] = useRecoilState(modalState);
-
+  const { os } = parser(window.navigator.userAgent);
+  const isCupertino = os.name === IOS;
   return (
-    <>
-      <button
-        onClick={() =>
-          setModal({ ...modal, [MODAL_KEY.NORMAL]: !modal[MODAL_KEY.NORMAL] })
-        }
-      >
-        button
-      </button>
-      {modal.normal && <Modal type={MODAL_KEY.NORMAL} />}
-      <Switch>
-        <Route path={''} component={Sample} />
-      </Switch>
-    </>
+    <Navigator
+      theme={isCupertino ? 'Cupertino' : 'Android'}
+      onClose={() => console.log('onClose')}
+    >
+      <Screen path={'/list/all'} component={All} />
+      <Screen path={'/list/recommend'} component={Recommend} />
+      <Screen path={'/list/book-marked'} component={Bookmarked} />
+    </Navigator>
   );
 };
