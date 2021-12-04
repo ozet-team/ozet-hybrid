@@ -23,7 +23,7 @@ export const Layout = () => {
       <Screen path={'/list/book-marked'} component={Bookmarked} />
       {/*<Route path={'/recruitment'} component={Recruitment}/>*/}
       <Screen path={'/recruitment/detail/:id'} component={RecruitmentDetail} />
-      <Screen path={'/resume'} component={ResumeWeb} />
+      <Screen path={'/resume/:id'} component={ResumeWeb} />
     </Navigator>
   );
 };
