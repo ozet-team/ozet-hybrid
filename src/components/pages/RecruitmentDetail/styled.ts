@@ -25,15 +25,13 @@ export const StyledImageWrapper = styled.div`
 `;
 
 export const StyledImage = styled.img`
-  box-sizing: border-box;
-  background-size: contain;
   height: 347px;
-  width: 100%;
+  width: 100vw;
+  overflow: hidden;
+  background-size: contain;
   margin: 0 0 16px;
-  //background-color: rgba(0, 0, 0, 0.1);
-
+  background-attachment: fixed;
   background-image: url(${sampleImage});
-  top: 0px;
 `;
 export const StyledMapSkeleton = styled.div`
   height: 150px;
@@ -83,7 +81,6 @@ export const RecruitmentSubTitle = styled.div`
 `;
 export const RecruitmentMainText = styled.div`
   font-size: 14px;
-  font-weight: 500;
   color: #000;
   min-height: 20px;
 `;
