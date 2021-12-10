@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import DropdownIcon from 'src/assets/dropdown.svg';
+import { Modal } from 'src/components/common/Modal';
+import { useRecoilState } from 'recoil';
+import { modalState, MODAL_KEY } from 'src/store/modal';
 
 const FilterWrapper = styled.div`
   display: flex;
@@ -35,29 +38,34 @@ const FilterContent = styled.span`
   color: #5d2fff;
 `;
 
-interface Props {
-  children?: React.ReactElement;
-}
+function Filter() {
+  const [modal, setModal] = useRecoilState(modalState);
 
-function Filter({ children }: Props) {
   return (
-    <FilterWrapper>
-      <FilterItem>
-        <FilterTitle>지역</FilterTitle>
-        <FilterContent>서울 강남구</FilterContent>
-        <img src={DropdownIcon} />
-      </FilterItem>
-      <FilterItem>
-        <FilterTitle>지역</FilterTitle>
-        <FilterContent>서울 강남구</FilterContent>
-        <img src={DropdownIcon} />
-      </FilterItem>
-      <FilterItem>
-        <FilterTitle>지역</FilterTitle>
-        <FilterContent>서울 강남구</FilterContent>
-        <img src={DropdownIcon} />
-      </FilterItem>
-    </FilterWrapper>
+    <>
+      <FilterWrapper>
+        <FilterItem
+          onClick={() =>
+            setModal({ ...modal, [MODAL_KEY.NORMAL]: !modal[MODAL_KEY.NORMAL] })
+          }
+        >
+          <FilterTitle>지역</FilterTitle>
+          <FilterContent>서울 강남구</FilterContent>
+          <img src={DropdownIcon} />
+        </FilterItem>
+        <FilterItem>
+          <FilterTitle>지역</FilterTitle>
+          <FilterContent>서울 강남구</FilterContent>
+          <img src={DropdownIcon} />
+        </FilterItem>
+        <FilterItem>
+          <FilterTitle>지역</FilterTitle>
+          <FilterContent>서울 강남구</FilterContent>
+          <img src={DropdownIcon} />
+        </FilterItem>
+      </FilterWrapper>
+      {modal.normal && <Modal type={MODAL_KEY.NORMAL} />}
+    </>
   );
 }
 

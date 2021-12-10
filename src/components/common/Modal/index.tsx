@@ -16,7 +16,7 @@ export const Modal = ({ type = MODAL_KEY.NORMAL }: Props) => {
     <OutsideClickHandler
       outsideClick={() => setModal({ ...modal, [type]: !modal[type] })}
     >
-      <ModalWrapper>header content</ModalWrapper>;
+      <ModalWrapper>header content</ModalWrapper>
     </OutsideClickHandler>
   );
 };
