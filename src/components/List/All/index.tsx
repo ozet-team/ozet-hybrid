@@ -3,6 +3,7 @@ import { ScreenHelmet, useNavigator } from '@karrotframe/navigator';
 import { LayoutContainer } from 'src/styles/layout';
 import ListContainer from '../components/ListContainer';
 import Filter from '../components/Filter';
+import { useGetAnnouncements } from 'src/api/hooks/useGetAnnouncements';
 
 const listMock = [
   {
@@ -152,6 +153,8 @@ const listMock = [
 ];
 
 const All = () => {
+  const { data, loading } = useGetAnnouncements();
+
   return (
     <>
       <ScreenHelmet title="모든공고" closeButtonLocation="right" />

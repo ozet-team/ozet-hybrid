@@ -23,7 +23,6 @@ export const Inner = styled(motion.div)`
   left: 0;
   z-index: 1;
   width: 100%;
-  padding-top: 20px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   background-color: var(--white);

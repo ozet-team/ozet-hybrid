@@ -10,12 +10,12 @@ const DevTest = () => {
     <>
       <button
         onClick={() =>
-          setModal({ ...modal, [MODAL_KEY.NORMAL]: !modal[MODAL_KEY.NORMAL] })
+          setModal({ ...modal, [MODAL_KEY.SALARY]: !modal[MODAL_KEY.SALARY] })
         }
       >
         button
       </button>
-      {modal.normal && <Modal type={MODAL_KEY.NORMAL} />}
+      {modal.salary && <Modal type={MODAL_KEY.SALARY} />}
     </>
   );
 };
