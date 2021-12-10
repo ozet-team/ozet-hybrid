@@ -28,7 +28,7 @@ const ModalWrapper = ({
         <Inner
           initial={{ height: 0 }}
           animate={{
-            height: 500,
+            height: 'auto',
           }}
         >
           {children}
