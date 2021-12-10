@@ -4,11 +4,11 @@ import { sessionList } from './mock';
 export class GuestBookApi {
   private API: string;
   constructor() {
-    this.API = 'https://devksanbal.site';
+    this.API = 'https://api-staging.ozet.app/api/v1';
   }
 
-  getSessions = (url: string) => {
-    return axios.get<typeof sessionList>(`${this.API}/${url}`);
+  getAnnouncements = () => {
+    return axios.get(`${this.API}/announcement/announcements/`);
   };
 }
 
