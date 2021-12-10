@@ -47,22 +47,6 @@ const listMock = [
     url: 'https://picsum.photos/200',
   },
   {
-    id: 4,
-    title: '채용 공고 제목 두줄까지',
-    shopName: '이철헤어커커',
-    city: '서울',
-    district: '광진구',
-    url: 'https://picsum.photos/200',
-  },
-  {
-    id: 4,
-    title: '채용 공고 제목 두줄까지',
-    shopName: '이철헤어커커',
-    city: '서울',
-    district: '광진구',
-    url: 'https://picsum.photos/200',
-  },
-  {
     id: 5,
     title: '채용 공고 제목 두줄까지',
     shopName: '이철헤어커커',
@@ -153,7 +137,7 @@ const listMock = [
 ];
 
 const All = () => {
-  const { data, loading } = useGetAnnouncements();
+  // const { data, loading } = useGetAnnouncements();
 
   return (
     <>

@@ -8,9 +8,8 @@ import { Switch, Route } from 'react-router-dom';
 import DevTest from '../devTest';
 
 const IOS = 'iOS';
-import RecruitmentDetail from '../pages/RecruitmentDetail';
+import RecruitmentDetail from '../RecruitmentDetail';
 import DetailBottomBar from '../common/DetailBottomBar';
-import ResumeWeb from '../pages/ResumeWeb';
 
 export const Layout = () => {
   const { os } = parser(window.navigator.userAgent);
@@ -35,7 +34,7 @@ export const Layout = () => {
       <Screen path={'/list/book-marked'} component={Bookmarked} />
       {/*<Route path={'/recruitment'} component={Recruitment}/>*/}
       <Screen path={'/recruitment/detail/:id'} component={RecruitmentDetail} />
-      <Screen path={'/resume/:id'} component={ResumeWeb} />
+      <Screen path={'/resume/:id'} component={RecruitmentDetail} />
     </Navigator>
   );
 };

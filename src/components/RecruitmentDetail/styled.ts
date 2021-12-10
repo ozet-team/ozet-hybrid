@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-import sampleImage from '../../Sample/img.png';
 
 export const SectionColumnBar = styled.div`
   width: 1px;
@@ -30,9 +29,7 @@ export const StyledImage = styled.img`
   height: 347px;
   width: 100%;
   margin: 0 0 16px;
-  //background-color: rgba(0, 0, 0, 0.1);
-
-  background-image: url(${sampleImage});
+  background-color: rgba(0, 0, 0, 0.1);
   top: 0px;
 `;
 export const StyledMapSkeleton = styled.div`

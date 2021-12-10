@@ -1,3 +1,4 @@
+import { useNavigator } from '@karrotframe/navigator';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -49,10 +50,15 @@ interface Props {
 }
 
 function ListContainer({ list }: Props) {
+  const { push } = useNavigator();
+
   return (
     <ListWrapper>
       {list.map((item) => (
-        <ListItem key={item.id}>
+        <ListItem
+          key={item.id}
+          onClick={() => push(`/recruitment/detail/${item.id}`)}
+        >
           <ListImage src={item.url} />
           <ListTitle>{item.title}</ListTitle>
           <ListContent>{item.shopName}</ListContent>
