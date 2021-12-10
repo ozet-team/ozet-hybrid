@@ -15,24 +15,14 @@ export const Layout = () => {
   const { os } = parser(window.navigator.userAgent);
   const isCupertino = os.name === IOS;
 
-  // if (isCupertino) {
-  //   return (
-  //     <Switch>
-  //       <Route path={'/'} component={DevTest} />
-  //     </Switch>
-  //   );
-  // }
-
   return (
     <Navigator
       theme={isCupertino ? 'Cupertino' : 'Android'}
       onClose={() => console.log('onClose')}
     >
-      <DetailBottomBar />
       <Screen path={'/list/all'} component={All} />
       <Screen path={'/list/recommend'} component={Recommend} />
       <Screen path={'/list/book-marked'} component={Bookmarked} />
-      {/*<Route path={'/recruitment'} component={Recruitment}/>*/}
       <Screen path={'/recruitment/detail/:id'} component={RecruitmentDetail} />
       <Screen path={'/resume/:id'} component={RecruitmentDetail} />
     </Navigator>
