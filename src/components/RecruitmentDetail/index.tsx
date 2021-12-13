@@ -26,23 +26,9 @@ interface Iprops {
   setNavHandler: (data: boolean) => void;
 }
 const RecruitmentDetail = () => {
-  const [navHandler, setNavHandler] = useRecoilState(navState);
   const { id } = useParams<{ id: string }>();
   const data = RecruitmentDetailData.find((value) => value.id == id);
 
-  const location = useLocation();
-  const hideNavigation = () => {
-    if (location.pathname.includes('/recruitment/detail')) {
-      setNavHandler({ ...navHandler, NAVIGATION: false });
-    } else {
-      setNavHandler({ ...navHandler, NAVIGATION: true });
-    }
-  };
-  useEffect(() => {
-    hideNavigation();
-  }, []);
-  console.log(location.pathname);
-  console.log(navHandler);
   return (
     <>
       <ScreenHelmet title="공고상세" />
