@@ -25,11 +25,15 @@ export const StyledImageWrapper = styled.div`
 `;
 
 export const StyledImage = styled.img`
+  box-sizing: border-box;
+  background-size: contain;
   height: 347px;
   width: 100vw;
   overflow: hidden;
   background-size: contain;
   margin: 0 0 16px;
+  background-color: rgba(0, 0, 0, 0.1);
+  top: 0px;
   background-attachment: fixed;
   background-image: url(${sampleImage});
 `;
@@ -81,6 +85,7 @@ export const RecruitmentSubTitle = styled.div`
 `;
 export const RecruitmentMainText = styled.div`
   font-size: 14px;
+  font-weight: 500;
   color: #000;
   min-height: 20px;
 `;

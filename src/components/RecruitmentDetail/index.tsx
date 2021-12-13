@@ -13,9 +13,9 @@ import {
   StyledImage,
   StyledMapSkeleton,
 } from './styled';
-import { LayoutContainer } from '../../../styles/layout';
-import { useParams } from '@karrotframe/navigator';
-import { RecruitmentDetailData } from '../../../api/RecruitmentDetailData';
+import { LayoutContainer } from '../../styles/layout';
+import { ScreenHelmet, useParams } from '@karrotframe/navigator';
+import { RecruitmentDetailData } from '../../api/RecruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 
 const RecruitmentDetail = () => {
@@ -24,6 +24,8 @@ const RecruitmentDetail = () => {
 
   return (
     <>
+      <ScreenHelmet title="공고상세" />
+
       <StyledImage />
       {/*<styledImage style={{ backgroundImage: 'url()' }} />*/}
       <RecruitmentWrapper>

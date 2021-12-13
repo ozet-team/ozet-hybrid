@@ -2,14 +2,14 @@ import axios from 'axios';
 import { sessionList } from './mock';
 import { recruitmentDetail } from './types';
 
-export class OzetApi {
+export class GuestBookApi {
   private API: string;
   constructor() {
-    this.API = 'url';
+    this.API = 'https://api-staging.ozet.app/api/v1';
   }
 
-  getSessions = (url: string) => {
-    return axios.get<typeof sessionList>(`${this.API}/${url}`);
+  getAnnouncements = () => {
+    return axios.get(`${this.API}/announcement/announcements/`);
   };
 
   getRecruitmentDetailData = (id: number) => {
@@ -17,4 +17,4 @@ export class OzetApi {
   };
 }
 
-export default new OzetApi();
+export default new GuestBookApi();

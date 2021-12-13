@@ -1,3 +1,4 @@
+import { useNavigator } from '@karrotframe/navigator';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -13,7 +14,7 @@ const ListItem = styled.div`
 `;
 const ListImage = styled.img`
   border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+  border-radius: 8px;
   width: 100%;
   height: 94px;
   margin-bottom: 12px;
@@ -49,10 +50,15 @@ interface Props {
 }
 
 function ListContainer({ list }: Props) {
+  const { push } = useNavigator();
+
   return (
     <ListWrapper>
       {list.map((item) => (
-        <ListItem key={item.id}>
+        <ListItem
+          key={item.id}
+          onClick={() => push(`/recruitment/detail/${item.id}`)}
+        >
           <ListImage src={item.url} />
           <ListTitle>{item.title}</ListTitle>
           <ListContent>{item.shopName}</ListContent>

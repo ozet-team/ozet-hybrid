@@ -17,7 +17,7 @@
     "axios": "^0.23.0",
     "date-fns": "^2.25.0",
     "formik": "^2.2.9",
-    "framer-motion": "5.3.0",
+    "framer-motion": "^4.1.17",
     "inko": "^1.1.1",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
@@ -40,9 +40,9 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
