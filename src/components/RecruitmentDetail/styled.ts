@@ -17,7 +17,7 @@ export const SectionRowBar = styled.div`
 export const RecruitmentWrapper = styled.div`
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 120px;
+
   font-family: 'Noto Sans KR', sans-serif !important;
 `;
 export const StyledImageWrapper = styled.div`
