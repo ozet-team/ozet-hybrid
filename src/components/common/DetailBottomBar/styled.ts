@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DetailFooterWrapper = styled.div`
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   width: 100%;
   height: auto;

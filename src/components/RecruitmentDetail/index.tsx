@@ -71,6 +71,7 @@ const RecruitmentDetail = () => {
         </RecruitmentElementWrapper>
         <StyledMapSkeleton />
       </RecruitmentWrapper>
+      <DetailBottomBar />
     </>
   );
 };
