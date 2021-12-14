@@ -1,4 +1,4 @@
-export const RecruitmentDetailData = [
+export const recruitmentDetailData = [
   {
     id: '1',
     title: '채용공고 제목',

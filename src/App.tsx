@@ -7,6 +7,7 @@ import { RecoilRoot } from 'recoil';
 import { Layout } from './components/Layout';
 
 import '@karrotframe/navigator/index.css';
+import CheckLocation from './components/common/CheckLocation';
 
 function App() {
   return (

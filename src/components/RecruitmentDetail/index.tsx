@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   RecruitmentCategory,
   RecruitmentCategoryText,
@@ -15,12 +15,19 @@ import {
 } from './styled';
 import { LayoutContainer } from '../../styles/layout';
 import { ScreenHelmet, useParams } from '@karrotframe/navigator';
-import { RecruitmentDetailData } from '../../api/RecruitmentDetailData';
+import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
+import { RouteComponentProps } from 'react-router-dom';
 
+import { useRecoilState } from 'recoil';
+import { navState } from '../../store/navigation';
+import { useLocation } from 'react-router';
+interface Iprops {
+  setNavHandler: (data: boolean) => void;
+}
 const RecruitmentDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const data = RecruitmentDetailData.find((value) => value.id == id);
+  const data = recruitmentDetailData.find((value) => value.id == id);
 
   return (
     <>
@@ -71,6 +78,7 @@ const RecruitmentDetail = () => {
         </RecruitmentElementWrapper>
         <StyledMapSkeleton />
       </RecruitmentWrapper>
+      <DetailBottomBar />
     </>
   );
 };
