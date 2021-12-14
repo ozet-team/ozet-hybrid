@@ -1,4 +1,4 @@
-export const ResumeData = [
+export const resumeData = [
   {
     id: 1,
     profileImage: '',

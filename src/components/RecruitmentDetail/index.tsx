@@ -15,7 +15,7 @@ import {
 } from './styled';
 import { LayoutContainer } from '../../styles/layout';
 import { ScreenHelmet, useParams } from '@karrotframe/navigator';
-import { RecruitmentDetailData } from '../../api/RecruitmentDetailData';
+import { RecruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import { RouteComponentProps } from 'react-router-dom';
 
