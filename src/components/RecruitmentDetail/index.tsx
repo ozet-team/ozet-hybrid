@@ -15,7 +15,7 @@ import {
 } from './styled';
 import { LayoutContainer } from '../../styles/layout';
 import { ScreenHelmet, useParams } from '@karrotframe/navigator';
-import { RecruitmentDetailData } from '../../api/recruitmentDetailData';
+import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ interface Iprops {
 }
 const RecruitmentDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const data = RecruitmentDetailData.find((value) => value.id == id);
+  const data = recruitmentDetailData.find((value) => value.id == id);
 
   return (
     <>
