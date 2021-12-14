@@ -13,6 +13,7 @@ import RecruitmentDetail from '../RecruitmentDetail';
 import DetailBottomBar from '../common/DetailBottomBar';
 import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
+import CheckLocation from '../common/CheckLocation';
 
 export const Layout = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ export const Layout = () => {
         theme={isCupertino ? 'Cupertino' : 'Android'}
         onClose={() => console.log('onClose')}
       >
+        <CheckLocation />
         <Screen path={'/list/all'} component={All} />
         <Screen path={'/list/recommend'} component={Recommend} />
         <Screen path={'/list/book-marked'} component={Bookmarked} />

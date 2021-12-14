@@ -14,7 +14,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <SWRConfig>
         <RecoilRoot>
-          <CheckLocation />
           <div
             style={{
               display: 'flex',
