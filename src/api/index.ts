@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { sessionList } from './mock';
-import { recruitmentDetail } from './types';
+import { recruitmentDetailData } from './recruitmentDetailData';
 
 export class GuestBookApi {
   private API: string;
@@ -12,8 +12,10 @@ export class GuestBookApi {
     return axios.get(`${this.API}/announcement/announcements/`);
   };
 
-  getRecruitmentDetailData = (id: number) => {
-    return axios.get<recruitmentDetail>(`${this.API}/recruitment/${id}`);
+  getRecruitmentDetailData = (id: string) => {
+    return axios.get<typeof recruitmentDetailData>(
+      `${this.API}/recruitment/detail/${id}`,
+    );
   };
 }
 

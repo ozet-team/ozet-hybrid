@@ -18,14 +18,17 @@ import { ScreenHelmet, useParams } from '@karrotframe/navigator';
 import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import KakaoMap from '../common/KakaoMap';
+import Api from '../../api/index';
+import { AxiosResponse } from 'axios';
 
 interface Iprops {
   setNavHandler: (data: boolean) => void;
 }
 const RecruitmentDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const data = recruitmentDetailData.find((value) => value.id == id);
+  const id = useParams<string>();
 
+  // const data: any = Api.getRecruitmentDetailData(id);
+  const data = recruitmentDetailData;
   return (
     <>
       <ScreenHelmet title="공고상세" />
@@ -67,7 +70,7 @@ const RecruitmentDetail = () => {
             </RecruitmentElementWrapper>
             <SectionRowBar />
             <RecruitmentSubTitle>상세공고</RecruitmentSubTitle>
-            {data?.detailText.split('\n').map((line, id) => (
+            {data.detailText.split('\n').map((line: string, id: number) => (
               <RecruitmentMainText key={id}>{line}</RecruitmentMainText>
             ))}
             {data.detailImage ? <></> : <></>}
