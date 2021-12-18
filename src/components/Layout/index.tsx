@@ -14,6 +14,7 @@ import DetailBottomBar from '../common/DetailBottomBar';
 import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
 import CheckLocation from '../common/CheckLocation';
+import { backSwipe } from 'src/utils/bridge';
 
 export const Layout = () => {
   const location = useLocation();
@@ -26,7 +27,7 @@ export const Layout = () => {
       <Navigator
         className={navHandler.NAVIGATION ? '' : 'navigateClean'}
         theme={isCupertino ? 'Cupertino' : 'Android'}
-        onClose={() => console.log('onClose')}
+        onClose={() => backSwipe()}
       >
         <CheckLocation />
         <Screen path={'/list/all'} component={All} />
