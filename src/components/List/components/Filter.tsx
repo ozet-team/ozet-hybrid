@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import DropdownIcon from 'src/assets/dropdown.svg';
 import { Modal } from 'src/components/common/Modal';
@@ -7,6 +7,7 @@ import { modalState, MODAL_KEY } from 'src/store/modal';
 import ModalList from 'src/components/common/Modal/components/List';
 import { position, salary } from 'src/constants/list';
 import { filterState, FILTER_KEY } from 'src/store/filter';
+import { useNavigator } from '@karrotframe/navigator';
 
 const FilterWrapper = styled.div`
   display: flex;
@@ -47,6 +48,7 @@ const FilterContent = styled.span`
 function Filter() {
   const [modal, setModal] = useRecoilState(modalState);
   const [filter, setFilter] = useRecoilState(filterState);
+  const { push } = useNavigator();
 
   return (
     <>
@@ -72,7 +74,7 @@ function Filter() {
           <FilterContent>{filter.position.text}</FilterContent>
           <img src={DropdownIcon} />
         </FilterItem>
-        <FilterItem>
+        <FilterItem onClick={() => push('/filter/address')}>
           <FilterTitle>지역</FilterTitle>
           <FilterContent>서울 강남구</FilterContent>
           <img src={DropdownIcon} />

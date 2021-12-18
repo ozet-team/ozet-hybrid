@@ -1,23 +1,16 @@
 import React, { useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
-import { Inner, LayerWrapper } from './styled';
+import { FullTypeInner, Inner, LayerWrapper } from './styled';
 import { AnimatePresence } from 'framer-motion';
 
 interface ModalProps {
-  type?: string;
-  isShow?: boolean;
-  className?: string;
   children: React.ReactNode;
+  isFullType?: boolean;
   canOutsideClick?: boolean;
   onOutsideClick?: () => void;
 }
-const ModalWrapper = ({
-  type,
-  isShow = false,
-  className = '',
-  children,
-}: ModalProps) => {
+const ModalWrapper = ({ isFullType, children }: ModalProps) => {
   const closeModal = useCallback(() => {
     console.log('1');
   }, []);
@@ -25,14 +18,25 @@ const ModalWrapper = ({
   return ReactDOM.createPortal(
     <LayerWrapper>
       <AnimatePresence>
-        <Inner
-          initial={{ height: 0 }}
-          animate={{
-            height: 'auto',
-          }}
-        >
-          {children}
-        </Inner>
+        {isFullType ? (
+          <FullTypeInner
+            initial={{ height: 0 }}
+            animate={{
+              height: '100vh',
+            }}
+          >
+            {children}
+          </FullTypeInner>
+        ) : (
+          <Inner
+            initial={{ height: 0 }}
+            animate={{
+              height: 'auto',
+            }}
+          >
+            {children}
+          </Inner>
+        )}
       </AnimatePresence>
     </LayerWrapper>,
     document.getElementById('layer') as Element,
