@@ -6,7 +6,9 @@ function setAccessToken(accessToken: string) {
   });
 }
 
-window.bridge.setAccessToken = setAccessToken;
+if (window) {
+  window.setAccessToken = setAccessToken;
+}
 
 export function backSwipe() {
   window.webkit.messageHandlers.callbackHandler.postMessage({
