@@ -11,7 +11,9 @@ if (window) {
 }
 
 export function backSwipe() {
-  window.webkit.messageHandlers.callbackHandler.postMessage({
-    event: 'back',
-  });
+  window.webkit.messageHandlers.callbackHandler.postMessage(
+    JSON.stringify({
+      event: 'back',
+    }),
+  );
 }

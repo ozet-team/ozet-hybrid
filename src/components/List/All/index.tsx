@@ -137,7 +137,8 @@ const listMock = [
 ];
 
 const All = () => {
-  // const { data, loading } = useGetAnnouncements();
+  const { data, loading } = useGetAnnouncements();
+  console.log(data);
 
   return (
     <>
