@@ -11,6 +11,14 @@ if (window) {
   window.setAccessToken = setAccessToken;
 }
 
+export function getAccessToken() {
+  window.webkit.messageHandlers.callbackHandler.postMessage(
+    JSON.stringify({
+      event: 'token',
+    }),
+  );
+}
+
 export function backSwipe() {
   window.webkit.messageHandlers.callbackHandler.postMessage(
     JSON.stringify({
