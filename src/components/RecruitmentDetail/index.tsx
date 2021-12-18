@@ -14,7 +14,11 @@ import {
   StyledMapSkeleton,
 } from './styled';
 import { LayoutContainer } from '../../styles/layout';
-import { ScreenHelmet, useParams } from '@karrotframe/navigator';
+import {
+  ScreenHelmet,
+  useCurrentScreen,
+  useParams,
+} from '@karrotframe/navigator';
 import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import { RouteComponentProps } from 'react-router-dom';
@@ -22,12 +26,18 @@ import { RouteComponentProps } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
 import { useLocation } from 'react-router';
+import { setToEnabledSwipe } from 'src/utils/bridge';
 interface Iprops {
   setNavHandler: (data: boolean) => void;
 }
 const RecruitmentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const data = recruitmentDetailData.find((value) => value.id == id);
+  const { isRoot } = useCurrentScreen();
+
+  useEffect(() => {
+    setToEnabledSwipe(isRoot);
+  }, [isRoot]);
 
   return (
     <>

@@ -1,9 +1,14 @@
-import React from 'react';
-import { ScreenHelmet, useNavigator } from '@karrotframe/navigator';
+import React, { useEffect } from 'react';
+import {
+  ScreenHelmet,
+  useCurrentScreen,
+  useNavigator,
+} from '@karrotframe/navigator';
 import { LayoutContainer } from 'src/styles/layout';
 import ListContainer from '../components/ListContainer';
 import Filter from '../components/Filter';
 import { useGetAnnouncements } from 'src/api/hooks/useGetAnnouncements';
+import { setToEnabledSwipe } from 'src/utils/bridge';
 
 const listMock = [
   {
@@ -137,8 +142,14 @@ const listMock = [
 ];
 
 const All = () => {
-  const { data, loading } = useGetAnnouncements();
-  console.log(data);
+  // const { data, loading } = useGetAnnouncements();
+  // console.log(data);
+
+  const { isRoot } = useCurrentScreen();
+
+  useEffect(() => {
+    setToEnabledSwipe(isRoot);
+  }, [isRoot]);
 
   return (
     <>

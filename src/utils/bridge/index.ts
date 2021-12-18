@@ -12,17 +12,32 @@ if (window) {
 }
 
 export function getAccessToken() {
-  window.webkit.messageHandlers.callbackHandler.postMessage(
-    JSON.stringify({
-      event: 'token',
-    }),
-  );
+  if (window.webkit) {
+    window.webkit.messageHandlers.callbackHandler.postMessage(
+      JSON.stringify({
+        event: 'token',
+      }),
+    );
+  }
 }
 
 export function backSwipe() {
-  window.webkit.messageHandlers.callbackHandler.postMessage(
-    JSON.stringify({
-      event: 'back',
-    }),
-  );
+  if (window.webkit) {
+    window.webkit.messageHandlers.callbackHandler.postMessage(
+      JSON.stringify({
+        event: 'back',
+      }),
+    );
+  }
+}
+
+export function setToEnabledSwipe(enabled = true) {
+  if (window.webkit) {
+    window.webkit.messageHandlers.callbackHandler.postMessage(
+      JSON.stringify({
+        event: 'swipe',
+        isEnableSwipe: enabled,
+      }),
+    );
+  }
 }
