@@ -16,8 +16,6 @@ const CheckLocation = () => {
   useEffect(() => {
     hideNavigation();
   }, [location]);
-  console.log(location.pathname);
-  console.log(navHandler);
   return null;
 };
 
