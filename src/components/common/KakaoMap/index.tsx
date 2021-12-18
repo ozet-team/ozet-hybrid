@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import { MapContainer } from './styled';
 
 interface Props {
   x: string;
@@ -8,7 +8,7 @@ interface Props {
 const KakaoMap = ({ x, y }: Props): JSX.Element => {
   const options = {
     center: new window.kakao.maps.LatLng(x, y),
-    level: 3,
+    level: 5,
   };
   const ref = useRef<HTMLDivElement>(null);
 
@@ -16,12 +16,7 @@ const KakaoMap = ({ x, y }: Props): JSX.Element => {
     new window.kakao.maps.Map(ref.current, options);
   }, []);
 
-  return <StyledContainer id="map" ref={ref} />;
+  return <MapContainer id="map" ref={ref} />;
 };
-
-const StyledContainer = styled.div`
-  width: 100%;
-  height: 150px;
-`;
 
 export default KakaoMap;

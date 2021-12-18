@@ -123,7 +123,7 @@ export const recruitmentDetailData = [
       '라고 하시면 빠른 문의가 가능합니다.\n',
     detailImage: '',
     workSpace: '서울 강동구 어쩌고 어쩌고',
-    coordinateX: '33.450701',
-    coordinateY: '126.570667',
+    coordinateX: '37.499652',
+    coordinateY: '127.034972',
   },
 ];
