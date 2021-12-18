@@ -1,6 +1,7 @@
 import { nativeInfo } from '../storage';
 
 function setAccessToken(accessToken: string) {
+  console.log('setAccessToken', accessToken);
   nativeInfo.setData({
     accessToken: accessToken,
   });
