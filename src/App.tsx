@@ -5,9 +5,13 @@ import { theme } from './styles/theme';
 import { SWRConfig } from 'swr';
 import { RecoilRoot } from 'recoil';
 import { Layout } from './components/Layout';
-
 import '@karrotframe/navigator/index.css';
-import CheckLocation from './components/common/CheckLocation';
+
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
 
 function App() {
   return (

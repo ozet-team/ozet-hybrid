@@ -121,6 +121,9 @@ export const recruitmentDetailData = [
       '전화 문의 시 미용커플에서 채용정보 보고 전화 드렸습니다. \n' +
       '\n' +
       '라고 하시면 빠른 문의가 가능합니다.\n',
+    detailImage: '',
     workSpace: '서울 강동구 어쩌고 어쩌고',
+    coordinateX: '33.450701',
+    coordinateY: '126.570667',
   },
 ];
