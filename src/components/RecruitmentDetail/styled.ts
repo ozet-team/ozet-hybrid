@@ -25,7 +25,7 @@ export const StyledImageWrapper = styled.div`
   background: transparent;
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled.img<any>`
   box-sizing: border-box;
   background-size: contain;
   height: 347px;
@@ -33,7 +33,8 @@ export const StyledImage = styled.img`
   overflow: hidden;
   background-size: contain;
   margin: 0 0 16px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url(${(props) => props.image});
+  //background-color: rgba(0, 0, 0, 0.1);
   top: 0px;
   background-attachment: fixed;
 `;
