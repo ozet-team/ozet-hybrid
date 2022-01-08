@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const LayerWrapper = styled.div`
+export const LayerWrapper = styled(motion.div)`
   &:before {
     position: fixed;
     top: 0;
