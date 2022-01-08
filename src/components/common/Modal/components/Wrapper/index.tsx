@@ -16,7 +16,13 @@ const ModalWrapper = ({ isFullType, children }: ModalProps) => {
   }, []);
 
   return ReactDOM.createPortal(
-    <LayerWrapper>
+    <LayerWrapper
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{ type: 'spring', duration: 0.3 }}
+    >
       <AnimatePresence>
         {isFullType ? (
           <FullTypeInner
@@ -32,6 +38,11 @@ const ModalWrapper = ({ isFullType, children }: ModalProps) => {
             initial={{ height: 0 }}
             animate={{
               height: 'auto',
+            }}
+            transition={{
+              type: 'spring',
+              bounce: 0.2,
+              duration: 0.5,
             }}
           >
             {children}
