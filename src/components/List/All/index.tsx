@@ -142,8 +142,7 @@ const listMock = [
 ];
 
 const All = () => {
-  // const { data, loading } = useGetAnnouncements();
-  // console.log(data);
+  const { data, loading } = useGetAnnouncements();
 
   const { isRoot } = useCurrentScreen();
 
@@ -156,7 +155,7 @@ const All = () => {
       <ScreenHelmet title="모든공고" closeButtonLocation="right" />
       <LayoutContainer>
         <Filter />
-        <ListContainer list={listMock}></ListContainer>
+        <ListContainer list={data}></ListContainer>
       </LayoutContainer>
     </>
   );
