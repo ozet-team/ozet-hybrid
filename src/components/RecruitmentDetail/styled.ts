@@ -17,6 +17,7 @@ export const SectionRowBar = styled.div`
 export const RecruitmentWrapper = styled.div`
   margin-left: 20px;
   margin-right: 20px;
+  word-break: keep-all;
 `;
 export const StyledImageWrapper = styled.div`
   height: 347px;
@@ -61,13 +62,13 @@ export const RecruitmentInfoCategory = styled.div`
 export const RecruitmentCategory = styled.div`
   font-size: 14px;
   font-weight: 500;
+  word-break: keep-all;
   color: #939497;
   margin-bottom: 6px;
 `;
 export const RecruitmentElementWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
 `;
 export const RecruitmentCategoryText = styled.div`
   font-size: 14px;

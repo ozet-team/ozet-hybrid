@@ -3,17 +3,19 @@ export interface SignInRequest {
 }
 export interface recruitmentDetail {
   id: string;
-  picture: string;
   title: string;
-  city: string;
-  manager: string;
-  callNumber: string;
-  deadline: string;
-  workTime: string;
-  pay: string;
-  career: string;
-  detailTest: string;
-  workSpace: string;
+  shopName: string;
+  managerName: string;
+  managerPhoneNumber: string;
+  workingHour: string;
+  expireType: string;
+  payType: string;
+  payAmount: number;
+  expiredDatetime: boolean; //만료날짜
+  employeeTypes: { id: number; name: string }[];
+  description: string;
+  detailImage: string;
+  shopLocation: string;
 }
 
 export interface employeeTypeItem {
