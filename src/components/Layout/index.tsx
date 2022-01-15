@@ -10,10 +10,11 @@ import './Layout.css';
 
 const IOS = 'iOS';
 import RecruitmentDetail from '../RecruitmentDetail';
-import DetailBottomBar from '../common/DetailBottomBar';
 import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
 import CheckLocation from '../common/CheckLocation';
+import AddressFilter from '../AddressFilter';
+import { backSwipe } from 'src/utils/bridge';
 
 export const Layout = () => {
   const location = useLocation();
@@ -24,14 +25,15 @@ export const Layout = () => {
   return (
     <>
       <Navigator
+        theme="Cupertino"
         className={navHandler.NAVIGATION ? '' : 'navigateClean'}
-        theme={isCupertino ? 'Cupertino' : 'Android'}
-        onClose={() => console.log('onClose')}
+        onClose={() => backSwipe()}
       >
         <CheckLocation />
         <Screen path={'/list/all'} component={All} />
         <Screen path={'/list/recommend'} component={Recommend} />
         <Screen path={'/list/book-marked'} component={Bookmarked} />
+        <Screen path={'/filter/address'} component={AddressFilter} />
         <Screen
           path={'/recruitment/detail/:id'}
           component={RecruitmentDetail}

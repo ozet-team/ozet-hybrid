@@ -1,5 +1,6 @@
 import { useNavigator } from '@karrotframe/navigator';
 import React from 'react';
+import { ListItemType } from 'src/api/types';
 import styled from 'styled-components';
 
 const ListWrapper = styled.div`
@@ -46,7 +47,7 @@ interface List {
 
 interface Props {
   children?: React.ReactElement;
-  list: List[];
+  list?: ListItemType[];
 }
 
 function ListContainer({ list }: Props) {
@@ -54,19 +55,22 @@ function ListContainer({ list }: Props) {
 
   return (
     <ListWrapper>
-      {list.map((item) => (
-        <ListItem
-          key={item.id}
-          onClick={() => push(`/recruitment/detail/${item.id}`)}
-        >
-          <ListImage src={item.url} />
-          <ListTitle>{item.title}</ListTitle>
-          <ListContent>{item.shopName}</ListContent>
-          <ListContent>
-            {item.city} ・ {item.district}
-          </ListContent>
-        </ListItem>
-      ))}
+      {list &&
+        list.map((item) => (
+          <ListItem
+            key={item.id}
+            onClick={() => push(`/recruitment/detail/${item.id}`)}
+          >
+            {/* TODO */}
+            <ListImage src={'https://picsum.photos/200'} />
+            <ListTitle>{item.title}</ListTitle>
+            <ListContent>{item.shopName}</ListContent>
+            <ListContent>
+              {/* TODO: */}
+              {/* {item.city} ・ {item.district} */}
+            </ListContent>
+          </ListItem>
+        ))}
     </ListWrapper>
   );
 }

@@ -15,3 +15,23 @@ export interface recruitmentDetail {
   detailTest: string;
   workSpace: string;
 }
+
+export interface employeeTypeItem {
+  id: number;
+  name: string;
+}
+export interface ListItemType {
+  description: string;
+  employeeTypes: employeeTypeItem[];
+  expireType: string;
+  expiredDatetime: string;
+  id: number;
+  managerName: string;
+  managerPhoneNumber: string;
+  payAmount: number;
+  payType: string;
+  shopLocation: string;
+  shopName: string;
+  title: string;
+  workingHour: string;
+}
