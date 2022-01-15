@@ -22,6 +22,9 @@ import {
 import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import { RouteComponentProps } from 'react-router-dom';
+import SampleImage1 from '../../img/SampleImage1.png';
+import SampleImage2 from '../../img/SampleImage2.png';
+import SampleImage3 from '../../img/SampleImage3.png';
 
 import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
@@ -34,6 +37,24 @@ const RecruitmentDetail = () => {
   const { id } = useParams<{ id: string }>();
   const data = recruitmentDetailData.find((value) => value.id == id);
   const { isRoot } = useCurrentScreen();
+  const [defaultImage, setDefaultImage] = useState('');
+
+  const imageHandler = () => {
+    const num = Math.floor(Math.random() * 3) + 1;
+
+    console.log(num);
+    if (num == 1) {
+      setDefaultImage(SampleImage1);
+    } else if (num == 2) {
+      setDefaultImage(SampleImage2);
+    } else if (num == 3) {
+      setDefaultImage(SampleImage3);
+    }
+  };
+  useEffect(() => {
+    imageHandler();
+  }, []);
+  console.log(defaultImage);
 
   useEffect(() => {
     setToEnabledSwipe(isRoot);
@@ -58,8 +79,8 @@ const RecruitmentDetail = () => {
   return (
     <>
       <ScreenHelmet title="공고상세" />
+      <StyledImage image={defaultImage} />
 
-      <StyledImage />
       {/*<styledImage style={{ backgroundImage: 'url()' }} />*/}
       <RecruitmentWrapper>
         <RecruitmentTitle>{data?.title}</RecruitmentTitle>
