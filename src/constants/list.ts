@@ -1,21 +1,36 @@
+export const PAY_TYPES = {
+  DA: 'DA',
+  HO: 'HO',
+  IR: 'IR',
+  MO: 'MO',
+  WE: 'WE',
+  YE: 'YE',
+} as const;
+
 export const salary = [
   {
     text: '시급',
+    type: PAY_TYPES.HO,
   },
   {
     text: '일급',
+    type: PAY_TYPES.DA,
   },
   {
     text: '주급',
+    type: PAY_TYPES.WE,
   },
   {
     text: '월급',
+    type: PAY_TYPES.MO,
   },
   {
     text: '연봉',
+    type: PAY_TYPES.YE,
   },
   {
     text: '무관',
+    type: PAY_TYPES.IR,
   },
 ];
 
