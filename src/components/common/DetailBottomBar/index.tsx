@@ -18,7 +18,7 @@ const DetailBottomBar = () => {
           <BookMark />
         </BookMarkBox>
         <FooterButtonWrapper>
-          <OzetButton>지원하기</OzetButton>
+          <OzetButton>이력서 전송</OzetButton>
         </FooterButtonWrapper>
       </FooterInner>
     </DetailFooterWrapper>
