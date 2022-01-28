@@ -2,6 +2,7 @@ import { useNavigator } from '@karrotframe/navigator';
 import React from 'react';
 import { ListItemType } from 'src/api/types';
 import styled from 'styled-components';
+import BookmarkImage from 'src/assets/bookmark.svg';
 
 const ListWrapper = styled.div`
   display: flex;
@@ -12,7 +13,15 @@ const ListWrapper = styled.div`
 
 const ListItem = styled.div`
   width: calc(50% - 8px);
+  position: relative;
 `;
+
+const BookmarkImageWrapper = styled.img`
+  position: absolute;
+  right: 8px;
+  top: 8px;
+`;
+
 const ListImage = styled.img`
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 8px;
@@ -20,6 +29,7 @@ const ListImage = styled.img`
   height: 94px;
   margin-bottom: 12px;
 `;
+
 const ListTitle = styled.p`
   font-style: normal;
   font-weight: normal;
@@ -62,6 +72,7 @@ function ListContainer({ list }: Props) {
             onClick={() => push(`/recruitment/detail/${item.id}`)}
           >
             {/* TODO */}
+            <BookmarkImageWrapper src={BookmarkImage} />
             <ListImage src={'https://picsum.photos/200'} />
             <ListTitle>{item.title}</ListTitle>
             <ListContent>{item.shopName}</ListContent>

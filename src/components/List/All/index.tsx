@@ -9,6 +9,8 @@ import ListContainer from '../components/ListContainer';
 import Filter from '../components/Filter';
 import { useGetAnnouncements } from 'src/api/hooks/useGetAnnouncements';
 import { setToEnabledSwipe } from 'src/utils/bridge';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { filterSelector, filterState } from 'src/store/filter';
 
 const listMock = [
   {
@@ -142,7 +144,8 @@ const listMock = [
 ];
 
 const All = () => {
-  const { data, loading } = useGetAnnouncements();
+  const filter = useRecoilValue(filterSelector);
+  const { data, loading } = useGetAnnouncements(filter);
 
   const { isRoot } = useCurrentScreen();
 

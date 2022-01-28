@@ -2,15 +2,16 @@ import useSWR from 'swr';
 import Api from '../index';
 import qs from 'query-string';
 import { sessionList } from '../mock';
+import { FilterState } from 'src/store/filter';
 
-async function getAnnouncements() {
-  const res = await Api.getAnnouncements();
+async function getAnnouncements(url: string) {
+  const res = await Api.getAnnouncements(url);
   return res.data;
 }
 
-export function useGetAnnouncements() {
+export function useGetAnnouncements({ salary }: typeof FilterState) {
   const { data, error } = useSWR(
-    ['/announcement/announcements'],
+    [`/announcement/announcements/?pay_types=${salary.type}`],
     getAnnouncements,
   );
   return {

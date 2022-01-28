@@ -9,8 +9,9 @@ export class GuestBookApi {
     this.API = 'https://api-staging.ozet.app/api/v1';
   }
 
-  getAnnouncements = () => {
-    return axios.get<ListItemType[]>(`${this.API}/announcement/announcements/`);
+  getAnnouncements = (url: string) => {
+    console.log(url);
+    return axios.get<ListItemType[]>(`${this.API}${url}`);
   };
 
   getRecruitmentDetailData = (id: string) => {
