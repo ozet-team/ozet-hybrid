@@ -32,8 +32,8 @@ interface Iprops {
   setNavHandler: (data: boolean) => void;
 }
 const RecruitmentDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const { data }: any = useGetAnnouncements();
+  const id = useParams<{ id: string }>();
+  const { data }: any = useGetAnnouncements({ salary: id });
   const detailData = data?.find((value: any) => (value?.id as string) == id);
   const { isRoot } = useCurrentScreen();
   const [defaultImage, setDefaultImage] = useState('');
