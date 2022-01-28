@@ -27,24 +27,28 @@ import KakaoMap from '../common/KakaoMap';
 import { useGetAnnouncements } from '../../api/hooks/useGetAnnouncements';
 import { locationConvert } from '../../utils/hooks/locationConvert';
 import { paymentConvert } from '../../utils/hooks/paymentConvert';
+import { useRecoilState } from 'recoil';
+import { filterState } from '../../store/filter';
 
-interface Iprops {
-  setNavHandler: (data: boolean) => void;
-}
 const RecruitmentDetail = () => {
-  const id = useParams<{ id: string }>();
-  const { data }: any = useGetAnnouncements({ salary: id });
-  const detailData = data?.find((value: any) => (value?.id as string) == id);
+  const [filter] = useRecoilState(filterState);
+  const { id } = useParams<{ id: string }>();
+  const { data }: any = useGetAnnouncements({
+    salary: filter.salary,
+    position: filter.position,
+  });
+  const detailData = data?.find((value: any) => (value.id as string) == id);
   const { isRoot } = useCurrentScreen();
   const [defaultImage, setDefaultImage] = useState('');
-
   const imageHandler = () => {
     const num = Math.floor(Math.random() * 3) + 1;
     if (num == 1) {
       setDefaultImage(SampleImage1);
-    } else if (num == 2) {
+    }
+    if (num == 2) {
       setDefaultImage(SampleImage2);
-    } else if (num == 3) {
+    }
+    if (num == 3) {
       setDefaultImage(SampleImage3);
     }
   };
@@ -56,14 +60,12 @@ const RecruitmentDetail = () => {
     setToEnabledSwipe(isRoot);
   }, [isRoot]);
 
-  console.log(defaultImage);
   return (
     <>
       {detailData && (
         <>
           <ScreenHelmet title="공고상세" />
           <StyledImage image={defaultImage} />
-          {/*// <styledImage style={{ backgroundImage: 'url()' }} />*/}
           <RecruitmentWrapper>
             <RecruitmentTitle>{detailData.title}</RecruitmentTitle>
             <RecruitmentElementWrapper>

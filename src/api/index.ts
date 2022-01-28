@@ -19,6 +19,12 @@ export class GuestBookApi {
       `${this.API}/recruitment/detail/${id}`,
     );
   };
+  postBookmarks = (payload: { announcementId: 0 }) => {
+    return axios.post<typeof recruitmentDetailData>(
+      `${this.API}/announcement/bookmarks/`,
+      payload,
+    );
+  };
 }
 
 export default new GuestBookApi();

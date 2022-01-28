@@ -8,13 +8,23 @@ import {
   FooterInner,
 } from './styled';
 import BookMark from '../../../img/BookMark';
+import { useParams } from 'react-router-dom';
+import API from '../../../api/index';
 
 const DetailBottomBar = () => {
+  const { id }: any = useParams();
+  const postBookmarkHandler = () => {
+    API.postBookmarks({ announcementId: id });
+  };
   return (
     <DetailFooterWrapper>
       <FooterFade />
       <FooterInner>
-        <BookMarkBox>
+        <BookMarkBox
+          onClick={() => {
+            postBookmarkHandler();
+          }}
+        >
           <BookMark />
         </BookMarkBox>
         <FooterButtonWrapper>

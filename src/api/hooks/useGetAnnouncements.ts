@@ -1,7 +1,5 @@
 import useSWR from 'swr';
 import Api from '../index';
-import qs from 'query-string';
-import { sessionList } from '../mock';
 import { FilterState } from 'src/store/filter';
 
 async function getAnnouncements(url: string) {
