@@ -1,13 +1,13 @@
 import React from 'react';
 
-const BookMark = () => {
+const BookMark = (props: { fill?: string }) => {
   return (
     <>
       <svg
         width="20"
         height="28"
         viewBox="0 0 20 28"
-        fill="none"
+        fill={props.fill}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

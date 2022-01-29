@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { OzetButton } from '../OzetButton/styled';
 import {
   BookMarkBox,
@@ -8,24 +8,49 @@ import {
   FooterInner,
 } from './styled';
 import BookMark from '../../../img/BookMark';
-import { useParams } from 'react-router-dom';
 import API from '../../../api/index';
 
-const DetailBottomBar = () => {
-  const { id }: any = useParams();
-  const postBookmarkHandler = () => {
-    API.postBookmarks({ announcementId: id });
+const DetailBottomBar = (props: { id: string }) => {
+  const { id } = props;
+  const [isBookMark, setIsBookMark] = React.useState(false);
+  console.log(isBookMark);
+  const getBookmarkHandler = () => {
+    API.getBookMark().then((res) => {
+      if (res.data) {
+        const isBookMark = res.data.map((data) =>
+          data.announcement.id.toString(),
+        );
+        setIsBookMark(isBookMark.includes(id));
+      }
+    });
+    console.log(id);
   };
+  useEffect(() => {
+    getBookmarkHandler();
+  }, []);
+  const bookmarkHandler = () => {
+    if (isBookMark) {
+      API.deleteBookMark(id).then(() => {
+        setIsBookMark(false);
+      });
+    } else {
+      API.postBookMark({ announcementId: id }).then(() => {
+        setIsBookMark(true);
+      });
+    }
+  };
+
   return (
     <DetailFooterWrapper>
       <FooterFade />
+
       <FooterInner>
         <BookMarkBox
           onClick={() => {
-            postBookmarkHandler();
+            bookmarkHandler();
           }}
         >
-          <BookMark />
+          <BookMark fill={isBookMark ? '#5d2fff' : '#efefef'} />
         </BookMarkBox>
         <FooterButtonWrapper>
           <OzetButton>이력서 전송</OzetButton>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { sessionList } from './mock';
 import { recruitmentDetailData } from './recruitmentDetailData';
-import { ListItemType, recruitmentDetail } from './types';
+import { getBookmarkDataType, ListItemType, recruitmentDetail } from './types';
 
 export class GuestBookApi {
   private API: string;
@@ -19,10 +19,35 @@ export class GuestBookApi {
       `${this.API}/recruitment/detail/${id}`,
     );
   };
-  postBookmarks = (payload: { announcementId: 0 }) => {
+  postBookMark = (payload: { announcementId: string }) => {
     return axios.post<typeof recruitmentDetailData>(
       `${this.API}/announcement/bookmarks/`,
       payload,
+      {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+        },
+      },
+    );
+  };
+  getBookMark = () => {
+    return axios.get<getBookmarkDataType>(
+      `${this.API}/announcement/bookmarks/`,
+      {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+        },
+      },
+    );
+  };
+  deleteBookMark = (id: string) => {
+    return axios.delete<typeof recruitmentDetailData>(
+      `${this.API}/announcement/bookmarks/${id}`,
+      {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+        },
+      },
     );
   };
 }

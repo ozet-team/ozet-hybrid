@@ -17,6 +17,27 @@ export interface recruitmentDetail {
   detailImage: string;
   shopLocation: string;
 }
+export type getBookmarkDataType = [
+  {
+    id: string;
+    announcement: {
+      id: string;
+      title: string;
+      shopName: string;
+      managerName: string;
+      managerPhoneNumber: string;
+      workingHour: string;
+      expireType: string;
+      payType: string;
+      payAmount: number;
+      expiredDatetime: boolean; //만료날짜
+      employeeTypes: { id: number; name: string }[];
+      description: string;
+      detailImage: string;
+      shopLocation: string;
+    };
+  },
+];
 
 export interface employeeTypeItem {
   id: number;
