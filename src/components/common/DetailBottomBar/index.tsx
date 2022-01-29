@@ -50,7 +50,7 @@ const DetailBottomBar = (props: { id: string }) => {
             bookmarkHandler();
           }}
         >
-          <BookMark fill={isBookMark ? '#5d2fff' : '#efefef'} />
+          <BookMark fill={isBookMark ? '#5d2fff' : '#D7D8DB'} />
         </BookMarkBox>
         <FooterButtonWrapper>
           <OzetButton>이력서 전송</OzetButton>
