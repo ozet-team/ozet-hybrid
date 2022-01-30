@@ -29,6 +29,7 @@ import { locationConvert } from '../../utils/hooks/locationConvert';
 import { paymentConvert } from '../../utils/hooks/paymentConvert';
 import { useRecoilState } from 'recoil';
 import { filterState } from '../../store/filter';
+import API from '../../api';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
@@ -139,7 +140,9 @@ const RecruitmentDetail = () => {
                 {detailData.shopLocation}
               </RecruitmentCategoryText>
             </RecruitmentElementWrapper>
-            <KakaoMap x={detailData.shopLocation} />
+            {detailData.shopLocation && (
+              <KakaoMap x={detailData.shopLocation} />
+            )}
           </RecruitmentWrapper>
           <DetailBottomBar id={id as string} />
         </>

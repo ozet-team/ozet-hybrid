@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { OzetButton } from '../OzetButton/styled';
 import {
   BookMarkBox,
@@ -12,25 +12,25 @@ import API from '../../../api/index';
 
 const DetailBottomBar = (props: { id: string }) => {
   const { id } = props;
-  const [isBookMark, setIsBookMark] = React.useState(false);
-  console.log(isBookMark);
+  const [isBookMark, setIsBookMark] = useState(false);
+  const [deleteBookMark, setDeleteBookMark] = useState<string>('');
   const getBookmarkHandler = () => {
     API.getBookMark().then((res) => {
       if (res.data) {
-        const isBookMark = res.data.map((data) =>
-          data.announcement.id.toString(),
-        );
-        setIsBookMark(isBookMark.includes(id));
+        const isBookMark = res.data
+          .map((item) => item.announcement.id.toString())
+          .indexOf(id);
+        setIsBookMark(isBookMark !== -1);
+        isBookMark !== -1 && setDeleteBookMark(res.data[isBookMark].id);
       }
     });
-    console.log(id);
   };
   useEffect(() => {
     getBookmarkHandler();
   }, []);
   const bookmarkHandler = () => {
     if (isBookMark) {
-      API.deleteBookMark(id).then(() => {
+      API.deleteBookMark(deleteBookMark).then(() => {
         setIsBookMark(false);
       });
     } else {

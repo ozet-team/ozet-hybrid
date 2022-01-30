@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { sessionList } from './mock';
 import { recruitmentDetailData } from './recruitmentDetailData';
-import { getBookmarkDataType, ListItemType, recruitmentDetail } from './types';
+import { getBookmarkDataType, ListItemType } from './types';
 
 export class GuestBookApi {
   private API: string;
@@ -49,6 +49,17 @@ export class GuestBookApi {
         },
       },
     );
+  };
+  getJWT = (payload: { user_id: string }) => {
+    return axios
+      .post<{ token: string }>(
+        `${this.API}/member/auth/passcode/pass/`,
+        payload,
+      )
+      .then((res) => {
+        const token = res.data.token;
+        localStorage.setItem('jwtToken', token);
+      });
   };
 }
 
