@@ -43,7 +43,6 @@ const DetailBottomBar = (props: { id: string }) => {
   return (
     <DetailFooterWrapper>
       <FooterFade />
-
       <FooterInner>
         <BookMarkBox
           onClick={() => {
