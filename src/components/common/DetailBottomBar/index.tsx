@@ -36,6 +36,7 @@ const DetailBottomBar = (props: { id: string }) => {
     } else {
       API.postBookMark({ announcementId: id }).then(() => {
         setIsBookMark(true);
+        getBookmarkHandler();
       });
     }
   };
