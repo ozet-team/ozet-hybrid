@@ -3,14 +3,18 @@ export const recruitmentDetailData = [
     id: '1',
     title: '채용공고 제목',
     shopName: '오젯오젯',
-    city: '서울 • 강남구',
-    manager: '김오젯',
-    callNumber: '010-1234-1234',
-    deadline: '2021.01.01',
-    workTime: '10:00 ~ 21:00',
-    pay: '240이상',
-    career: '디자이너',
-    detailText:
+    managerName: '김오젯',
+    managerPhoneNumber: '010-1234-1234',
+    workingHour: '10:30~08:00\n11:00~08:00',
+    expireType: 'AL',
+    payType: 'MO',
+    payAmount: 2400000,
+    expiredDatetime: null,
+    employeeTypes: [
+      { id: 1, name: '인턴(스텝)' },
+      { id: 3, name: '디자이너' },
+    ],
+    description:
       '[박승철헤어스투디오] \n' +
       '\n' +
       '1. 경기 수원시 영통구에 위치한 박승철헤어스투디오에서 디자이너 선생님을 기다립니다! \n' +
@@ -59,20 +63,25 @@ export const recruitmentDetailData = [
       '전화 문의 시 미용커플에서 채용정보 보고 전화 드렸습니다. \n' +
       '\n' +
       '라고 하시면 빠른 문의가 가능합니다.\n',
-    workSpace: '서울 강동구 어쩌고 어쩌고',
+    detailImage: '',
+    shopLocation: '서울시 노원구 마들로 31 그랑빌아파트',
   },
   {
-    id: 2,
+    id: '2',
     title: '채용공고 제목',
     shopName: '오젯오젯',
-    city: '서울 • 강남구',
-    manager: '김오젯',
-    callNumber: '010-1234-1234',
-    deadline: '2021.01.01',
-    workTime: '10:00 ~ 21:00',
-    pay: '240',
-    career: '디자이너',
-    detailText:
+    managerName: '김오젯',
+    managerPhoneNumber: '010-1234-1234',
+    workingHour: '10:30~08:00\n11:00~08:00',
+    expireType: 'AL',
+    payType: 'MO',
+    payAmount: 2400000,
+    expiredDatetime: null,
+    employeeTypes: [
+      { id: 1, name: '인턴(스텝)' },
+      { id: 3, name: '디자이너' },
+    ],
+    description:
       '[박승철헤어스투디오] \n' +
       '\n' +
       '1. 경기 수원시 영통구에 위치한 박승철헤어스투디오에서 디자이너 선생님을 기다립니다! \n' +
@@ -121,6 +130,7 @@ export const recruitmentDetailData = [
       '전화 문의 시 미용커플에서 채용정보 보고 전화 드렸습니다. \n' +
       '\n' +
       '라고 하시면 빠른 문의가 가능합니다.\n',
-    workSpace: '서울 강동구 어쩌고 어쩌고',
+    detailImage: '',
+    shopLocation: '서울 강동구 어쩌고 어쩌고',
   },
 ];

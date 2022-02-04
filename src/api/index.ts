@@ -1,6 +1,7 @@
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { sessionList } from './mock';
-import { ListItemType, recruitmentDetail } from './types';
+import { recruitmentDetailData } from './recruitmentDetailData';
+import { getBookmarkDataType, ListItemType } from './types';
 
 export class GuestBookApi {
   private API: string;
@@ -13,8 +14,52 @@ export class GuestBookApi {
     return axios.get<ListItemType[]>(`${this.API}${url}`);
   };
 
-  getRecruitmentDetailData = (id: number) => {
-    return axios.get<recruitmentDetail>(`${this.API}/recruitment/${id}`);
+  getRecruitmentDetailData = (id: string) => {
+    return axios.get<typeof recruitmentDetailData>(
+      `${this.API}/recruitment/detail/${id}`,
+    );
+  };
+  postBookMark = (payload: { announcementId: string }) => {
+    return axios.post<typeof recruitmentDetailData>(
+      `${this.API}/announcement/bookmarks/`,
+      payload,
+      {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+        },
+      },
+    );
+  };
+  getBookMark = () => {
+    return axios.get<getBookmarkDataType>(
+      `${this.API}/announcement/bookmarks/`,
+      {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+        },
+      },
+    );
+  };
+  deleteBookMark = (id: string) => {
+    return axios.delete<typeof recruitmentDetailData>(
+      `${this.API}/announcement/bookmarks/${id}`,
+      {
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+        },
+      },
+    );
+  };
+  getJWT = (payload: { user_id: string }) => {
+    return axios
+      .post<{ token: string }>(
+        `${this.API}/member/auth/passcode/pass/`,
+        payload,
+      )
+      .then((res) => {
+        const token = res.data.token;
+        localStorage.setItem('jwtToken', token);
+      });
   };
 }
 

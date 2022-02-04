@@ -17,13 +17,14 @@ export const SectionRowBar = styled.div`
 export const RecruitmentWrapper = styled.div`
   margin-left: 20px;
   margin-right: 20px;
+  word-break: keep-all;
 `;
 export const StyledImageWrapper = styled.div`
   height: 347px;
   background: transparent;
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled.img<any>`
   box-sizing: border-box;
   background-size: contain;
   height: 347px;
@@ -31,7 +32,8 @@ export const StyledImage = styled.img`
   overflow: hidden;
   background-size: contain;
   margin: 0 0 16px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url(${(props) => props.image});
+  //background-color: rgba(0, 0, 0, 0.1);
   top: 0px;
   background-attachment: fixed;
 `;
@@ -60,13 +62,13 @@ export const RecruitmentInfoCategory = styled.div`
 export const RecruitmentCategory = styled.div`
   font-size: 14px;
   font-weight: 500;
+  word-break: keep-all;
   color: #939497;
   margin-bottom: 6px;
 `;
 export const RecruitmentElementWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
 `;
 export const RecruitmentCategoryText = styled.div`
   font-size: 14px;

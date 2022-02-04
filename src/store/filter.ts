@@ -9,7 +9,7 @@ export const FILTER_KEY = {
 } as const;
 
 export const FilterState = {
-  [FILTER_KEY.SALARY]: { text: salary[0].text, type: '' },
+  [FILTER_KEY.SALARY]: { text: salary[0].text, type: 'HO' },
   [FILTER_KEY.POSITION]: { text: position[0].text },
 };
 

@@ -1,14 +1,14 @@
 import useSWR from 'swr';
 import Api from '../index';
-import { recruitmentDetail } from '../types';
+import { recruitmentDetailData } from '../recruitmentDetailData';
 
-async function getRecruitmentDetail(id: number) {
+async function getRecruitmentDetail(id: string) {
   const res = await Api.getRecruitmentDetailData(id);
   return res.data;
 }
 
 export function useGetRecruitmentDetail() {
-  const { data, error } = useSWR<recruitmentDetail>(
+  const { data, error } = useSWR<typeof recruitmentDetailData>(
     [`/recruitment`],
     getRecruitmentDetail,
   );
