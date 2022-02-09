@@ -18,6 +18,8 @@ export function getAccessToken() {
         event: 'token',
       }),
     );
+  } else {
+    window?.webviewBridge?.token();
   }
 }
 
