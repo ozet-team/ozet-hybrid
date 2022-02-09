@@ -1,8 +1,9 @@
-import React from 'react';
-import { ScreenHelmet } from '@karrotframe/navigator';
+import React, { useEffect } from 'react';
+import { ScreenHelmet, useCurrentScreen } from '@karrotframe/navigator';
 import { LayoutContainer } from 'src/styles/layout';
 import DropdownButton from '../common/Button/Dropdown';
 import styled from 'styled-components';
+import { setToEnabledSwipe } from 'src/utils/bridge';
 
 const AddressFormContainer = styled.div`
   display: flex;
@@ -20,6 +21,12 @@ const FormItem = styled.div`
 
 const AddressFilter = () => {
   // const { data, loading } = useGetAnnouncements();
+
+  const { isRoot } = useCurrentScreen();
+
+  useEffect(() => {
+    setToEnabledSwipe(isRoot);
+  }, [isRoot]);
 
   return (
     <>
