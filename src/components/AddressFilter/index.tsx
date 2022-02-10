@@ -22,11 +22,9 @@ const FormItem = styled.div`
 const AddressFilter = () => {
   // const { data, loading } = useGetAnnouncements();
 
-  const { isRoot } = useCurrentScreen();
-
   useEffect(() => {
-    setToEnabledSwipe(isRoot);
-  }, [isRoot]);
+    setToEnabledSwipe(false);
+  }, []);
 
   return (
     <>
