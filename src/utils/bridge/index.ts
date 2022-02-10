@@ -1,5 +1,4 @@
 import { nativeInfo } from '../storage';
-import { useCurrentScreen } from '@karrotframe/navigator';
 
 function setAccessToken(accessToken: string) {
   console.log('setAccessToken', accessToken);
@@ -9,9 +8,8 @@ function setAccessToken(accessToken: string) {
 }
 
 function backEvent() {
-  const { isRoot } = useCurrentScreen();
   console.log('backEvent');
-  console.log('isRoot_', isRoot);
+  history.back();
 }
 
 if (window) {
