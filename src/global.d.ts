@@ -3,6 +3,7 @@ interface Window {
   webkit: any;
   setAccessToken: any;
   webviewBridge: any;
+  backEvent: any;
 }
 
 declare let window: Window;
