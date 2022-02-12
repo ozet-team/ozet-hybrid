@@ -30,15 +30,21 @@ import { paymentConvert } from '../../utils/hooks/paymentConvert';
 import { useRecoilState } from 'recoil';
 import { filterState } from '../../store/filter';
 import API from '../../api';
+import { useGetRecruitmentDetail } from '../../api/hooks/useGetRecruimentDetail';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
   const { id } = useParams<{ id: string }>();
-  const { data }: any = useGetAnnouncements({
-    salary: filter.salary,
-    position: filter.position,
-  });
-  const detailData = data?.find((value: any) => (value.id as string) == id);
+  // const { data }: any = useGetAnnouncements({
+  //   salary: filter.salary,
+  //   position: filter.position,
+  // });
+
+  // const detailData = data.find((value: any) => (value.id as string) == id);
+
+  const { data } = useGetRecruitmentDetail(id as string);
+  const detailData = data;
+  console.log(detailData);
   const { isRoot } = useCurrentScreen();
   const [defaultImage, setDefaultImage] = useState('');
   const imageHandler = () => {
@@ -114,25 +120,23 @@ const RecruitmentDetail = () => {
             </RecruitmentElementWrapper>
             <RecruitmentElementWrapper>
               <RecruitmentCategory>경력</RecruitmentCategory>
-              {detailData.employeeTypes.map(
-                (data: { name: string }, id: number) => (
-                  <RecruitmentCategoryText key={id}>
-                    {data.name}
-                  </RecruitmentCategoryText>
-                ),
-              )}
+              {detailData.employeeTypes &&
+                detailData.employeeTypes.map(
+                  (data: { name: string }, id: number) => (
+                    <RecruitmentCategoryText key={id}>
+                      {data.name}
+                    </RecruitmentCategoryText>
+                  ),
+                )}
             </RecruitmentElementWrapper>
             <SectionRowBar />
             <RecruitmentSubTitle>상세공고</RecruitmentSubTitle>
-            {detailData.description && (
-              <>
-                {detailData.description
-                  .split('\n')
-                  .map((line: string, id: number) => (
-                    <RecruitmentMainText key={id}>{line}</RecruitmentMainText>
-                  ))}
-              </>
-            )}
+            {detailData.description &&
+              detailData.description
+                .split('\n')
+                .map((line: string, id: number) => (
+                  <RecruitmentMainText key={id}>{line}</RecruitmentMainText>
+                ))}
             <SectionRowBar />
             <RecruitmentElementWrapper>
               <RecruitmentCategory>근무지역</RecruitmentCategory>
