@@ -37,6 +37,8 @@ const RecruitmentDetail = () => {
   const { data }: any = useGetAnnouncements({
     salary: filter.salary,
     position: filter.position,
+    city: filter.city,
+    country: filter.country,
   });
   const detailData = data?.find((value: any) => (value.id as string) == id);
   const { isRoot } = useCurrentScreen();
