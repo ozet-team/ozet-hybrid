@@ -1,7 +1,17 @@
 .navigateClean{
-    --kf_navigator_navbar-height:0px !important;
-    --kf_navigator_navbar-background:transparent !important;
+    transition: 0.3s;
+    /*--kf_navigator_navbar-height:0px !important;*/
+    position: sticky;
+    top: 0;
+    --kf_navigator_navbar-background: rgba(0,0,0,0) !important;
 }
+._1ok9ruld{
+    /*padding: 0!important;*/
+}
+.x613ng4{
+    background: rgba(0,0,0,0) !important;
+}
+
 .x613ng2{
     height: 44px !important;
 }

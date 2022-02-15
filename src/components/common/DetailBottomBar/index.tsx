@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { OzetButton } from '../OzetButton/styled';
 import {
   BookMarkBox,
@@ -25,8 +25,8 @@ const DetailBottomBar = (props: { id: string }) => {
       }
     });
   };
-  useEffect(() => {
-    getBookmarkHandler();
+  useLayoutEffect(() => {
+    // getBookmarkHandler();
   }, []);
   const bookmarkHandler = () => {
     if (isBookMark) {

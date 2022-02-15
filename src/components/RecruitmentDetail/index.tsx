@@ -1,22 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  RecruitmentCategory,
-  RecruitmentCategoryText,
-  RecruitmentElementWrapper,
-  RecruitmentInfoCategory,
-  RecruitmentMainText,
-  RecruitmentSubTitle,
-  RecruitmentTitle,
-  RecruitmentWrapper,
-  SectionColumnBar,
-  SectionRowBar,
-  StyledImage,
-} from './styled';
-import {
-  ScreenHelmet,
-  useCurrentScreen,
-  useParams,
-} from '@karrotframe/navigator';
+import React, { useLayoutEffect, useState } from 'react';
+import { useCurrentScreen, useParams } from '@karrotframe/navigator';
 // import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import SampleImage1 from '../../img/SampleImage1.png';
@@ -29,7 +12,23 @@ import { locationConvert } from '../../utils/hooks/locationConvert';
 import { paymentConvert } from '../../utils/hooks/paymentConvert';
 import { useRecoilState } from 'recoil';
 import { filterState } from '../../store/filter';
-import API from '../../api';
+import {
+  BackImage,
+  RecruitDetailHeader,
+  RecruitmentCategory,
+  RecruitmentCategoryText,
+  RecruitmentElementWrapper,
+  RecruitmentInfoCategory,
+  RecruitmentMainText,
+  RecruitmentSubTitle,
+  RecruitmentTitle,
+  RecruitmentWrapper,
+  SectionColumnBar,
+  SectionRowBar,
+  StyledImage,
+} from './styled';
+import BackIcon from '../../img/iconBack.svg';
+import { useHistory } from 'react-router-dom';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
@@ -55,19 +54,22 @@ const RecruitmentDetail = () => {
       setDefaultImage(SampleImage3);
     }
   };
-  useEffect(() => {
+  useLayoutEffect(() => {
     imageHandler();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setToEnabledSwipe(isRoot);
   }, [isRoot]);
+  const history = useHistory();
 
   return (
     <>
       {detailData && (
         <>
-          <ScreenHelmet title="공고상세" />
+          <RecruitDetailHeader onClick={() => history.goBack()}>
+            <BackImage src={BackIcon} />
+          </RecruitDetailHeader>
           <StyledImage image={defaultImage} />
           <RecruitmentWrapper>
             <RecruitmentTitle>{detailData.title}</RecruitmentTitle>

@@ -16,6 +16,7 @@ import CheckLocation from '../common/CheckLocation';
 import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
 import NavigationColorHandler from '../NavigationColorHandler';
+import API from '../../api';
 
 export const Layout = () => {
   const location = useLocation();
