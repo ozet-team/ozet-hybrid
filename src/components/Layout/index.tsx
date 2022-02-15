@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Navigator, Screen } from '@karrotframe/navigator';
+import { Navigator, Screen, useLocation } from '@karrotframe/navigator';
 import All from '../List/All';
 import Recommend from '../List/Recommend';
 import Bookmarked from '../List/Bookmarked';
 import parser from 'ua-parser-js';
-import { useLocation } from 'react-router';
 import DevTest from '../devTest';
 import './Layout.css';
 
@@ -17,13 +16,16 @@ import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
 import NavigationColorHandler from '../NavigationColorHandler';
 import API from '../../api';
+import { BackImage, RecruitDetailHeader } from '../RecruitmentDetail/styled';
+import BackIcon from '../../img/iconBack.svg';
+import { useHistory } from 'react-router-dom';
 
 export const Layout = () => {
   const location = useLocation();
   const { os } = parser(window.navigator.userAgent);
   const isCupertino = os.name === IOS;
   const [navHandler, setNavHandler] = useRecoilState(navState);
-
+  const history = useHistory();
   return (
     <>
       <Navigator
@@ -31,6 +33,11 @@ export const Layout = () => {
         className={navHandler.NAVIGATION ? '' : 'navigateClean'}
         onClose={() => backSwipe()}
       >
+        {location.hash.includes('recruitment/detail') && (
+          <RecruitDetailHeader onClick={() => history.goBack()}>
+            <BackImage src={BackIcon} />
+          </RecruitDetailHeader>
+        )}
         <CheckLocation />
         <Screen path={'/list/all'} component={All} />
         <Screen path={'/list/recommend'} component={Recommend} />

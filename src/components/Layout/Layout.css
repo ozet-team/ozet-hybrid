@@ -1,15 +1,15 @@
 .navigateClean{
     transition: 0.3s;
-    /*--kf_navigator_navbar-height:0px !important;*/
-    position: sticky;
+    --kf_navigator_navbar-height:0px !important;
     top: 0;
     --kf_navigator_navbar-background: rgba(0,0,0,0) !important;
 }
-._1ok9ruld{
-    /*padding: 0!important;*/
+
+.x613ng7 {
+    visibility: hidden !important;
 }
-.x613ng4{
-    background: rgba(0,0,0,0) !important;
+.x613ng6 {
+    visibility: hidden !important;
 }
 
 .x613ng2{

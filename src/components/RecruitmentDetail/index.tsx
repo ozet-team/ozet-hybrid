@@ -1,5 +1,9 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { useCurrentScreen, useParams } from '@karrotframe/navigator';
+import {
+  ScreenHelmet,
+  useCurrentScreen,
+  useParams,
+} from '@karrotframe/navigator';
 // import { recruitmentDetailData } from '../../api/recruitmentDetailData';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import SampleImage1 from '../../img/SampleImage1.png';
@@ -14,6 +18,7 @@ import { useRecoilState } from 'recoil';
 import { filterState } from '../../store/filter';
 import {
   BackImage,
+  CarrotFrameHeaderWrapper,
   RecruitDetailHeader,
   RecruitmentCategory,
   RecruitmentCategoryText,
@@ -67,9 +72,9 @@ const RecruitmentDetail = () => {
     <>
       {detailData && (
         <>
-          <RecruitDetailHeader onClick={() => history.goBack()}>
-            <BackImage src={BackIcon} />
-          </RecruitDetailHeader>
+          <CarrotFrameHeaderWrapper>
+            <ScreenHelmet />
+          </CarrotFrameHeaderWrapper>
           <StyledImage image={defaultImage} />
           <RecruitmentWrapper>
             <RecruitmentTitle>{detailData.title}</RecruitmentTitle>
