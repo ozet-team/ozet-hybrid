@@ -89,7 +89,7 @@ export const RecruitmentMainText = styled.div`
   min-height: 20px;
 `;
 export const RecruitDetailHeader = styled.div`
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
