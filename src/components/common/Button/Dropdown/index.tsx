@@ -20,12 +20,12 @@ const DropdownButtonWrapper = styled.button`
   background: url(${DropdownImage}) no-repeat center right 16px;
 `;
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-const DropdownButton = ({ children }: Props) => {
-  return <DropdownButtonWrapper>{children}</DropdownButtonWrapper>;
+const DropdownButton = ({ children, ...rest }: Props) => {
+  return <DropdownButtonWrapper {...rest}>{children}</DropdownButtonWrapper>;
 };
 
 export default DropdownButton;

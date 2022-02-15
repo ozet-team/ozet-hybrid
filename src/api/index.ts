@@ -18,6 +18,10 @@ export class GuestBookApi {
     return axios.get<ListItemType[]>(`${this.API}${url}`);
   };
 
+  getAddress = (url: string) => {
+    return axios.get<{ id: number; name: string }[]>(`${this.API}${url}`);
+  };
+
   getRecruitmentDetailData = (id: string) => {
     return axios.get<recruitmentDetailDataType>(
       `${this.API}/announcement/announcements/${id}/`,

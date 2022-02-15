@@ -26,7 +26,7 @@ const DetailBottomBar = (props: { id: string }) => {
     });
   };
   useEffect(() => {
-    // getBookmarkHandler();
+    getBookmarkHandler();
   }, []);
   const bookmarkHandler = () => {
     if (isBookMark) {

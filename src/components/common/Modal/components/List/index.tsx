@@ -6,8 +6,12 @@ const ListWrapper = styled.ul`
   flex-direction: column;
   list-style: none;
   padding: 0;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
-const Item = styled.li`
+
+export const ListItem = styled.li`
   width: 100%;
   padding: 12px 24px;
 
@@ -21,21 +25,25 @@ type Item = {
 };
 
 interface Props<T> {
-  list: Array<T & Item>;
-  onClick: (item: T) => void;
+  list?: Array<T & Item>;
+  children?: ReactNode;
+  onClick?: (item: T) => void;
 }
 
 const ModalList = <T extends Record<string, unknown>>({
   list,
   onClick,
+  children,
 }: Props<T>) => {
   return (
     <ListWrapper>
-      {list.map((item, index) => (
-        <Item key={index} onClick={() => onClick(item)}>
-          {item.text}
-        </Item>
-      ))}
+      {list &&
+        list.map((item, index) => (
+          <ListItem key={index} onClick={() => onClick && onClick(item)}>
+            {item.text}
+          </ListItem>
+        ))}
+      {children}
     </ListWrapper>
   );
 };
