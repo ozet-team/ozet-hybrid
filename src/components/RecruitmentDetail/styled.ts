@@ -26,15 +26,14 @@ export const StyledImageWrapper = styled.div`
 
 export const StyledImage = styled.img<any>`
   box-sizing: border-box;
-  background-size: contain;
   height: 347px;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
-  background-size: contain;
+  background-size: 100% 347px;
+  background-repeat: no-repeat;
   margin: 0 0 16px;
   background-image: url(${(props) => props.image});
-  //background-color: rgba(0, 0, 0, 0.1);
-  top: 0px;
+  top: 0;
   background-attachment: fixed;
 `;
 export const StyledMapSkeleton = styled.div`
@@ -88,4 +87,18 @@ export const RecruitmentMainText = styled.div`
   font-weight: 500;
   color: #000;
   min-height: 20px;
+`;
+export const RecruitDetailHeader = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 44px;
+`;
+export const BackImage = styled.img`
+  margin-left: 20px;
+  height: 16px;
+  width: 8px;
 `;

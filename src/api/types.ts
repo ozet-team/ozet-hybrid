@@ -1,7 +1,7 @@
 export interface SignInRequest {
   email: string;
 }
-export interface recruitmentDetail {
+export interface recruitmentDetailDataType {
   id: string;
   title: string;
   shopName: string;

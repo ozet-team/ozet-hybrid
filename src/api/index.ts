@@ -1,7 +1,11 @@
 import axios, { Axios } from 'axios';
 import { sessionList } from './mock';
 import { recruitmentDetailData } from './recruitmentDetailData';
-import { getBookmarkDataType, ListItemType } from './types';
+import {
+  getBookmarkDataType,
+  ListItemType,
+  recruitmentDetailDataType,
+} from './types';
 
 export class GuestBookApi {
   private API: string;
@@ -19,8 +23,8 @@ export class GuestBookApi {
   };
 
   getRecruitmentDetailData = (id: string) => {
-    return axios.get<typeof recruitmentDetailData>(
-      `${this.API}/recruitment/detail/${id}`,
+    return axios.get<recruitmentDetailDataType>(
+      `${this.API}/announcement/announcements/${id}/`,
     );
   };
   postBookMark = (payload: { announcementId: string }) => {
