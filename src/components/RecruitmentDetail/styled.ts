@@ -88,19 +88,7 @@ export const RecruitmentMainText = styled.div`
   color: #000;
   min-height: 20px;
 `;
-export const RecruitDetailHeader = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  height: 44px;
-  z-index: 20;
-`;
-export const CarrotFrameHeaderWrapper = styled.div`
-  visibility: hidden !important;
-`;
+
 export const BackImage = styled.img`
   margin-left: 20px;
   height: 16px;

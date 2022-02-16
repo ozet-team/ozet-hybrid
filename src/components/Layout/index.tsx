@@ -16,16 +16,12 @@ import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
 import NavigationColorHandler from '../NavigationColorHandler';
 import API from '../../api';
-import { BackImage, RecruitDetailHeader } from '../RecruitmentDetail/styled';
-import BackIcon from '../../img/iconBack.svg';
-import { useHistory } from 'react-router-dom';
 
 export const Layout = () => {
-  const location = useLocation();
   const { os } = parser(window.navigator.userAgent);
   const isCupertino = os.name === IOS;
   const [navHandler, setNavHandler] = useRecoilState(navState);
-  const history = useHistory();
+
   return (
     <>
       <Navigator
@@ -33,11 +29,6 @@ export const Layout = () => {
         className={navHandler.NAVIGATION ? '' : 'navigateClean'}
         onClose={() => backSwipe()}
       >
-        {location.hash.includes('recruitment/detail') && (
-          <RecruitDetailHeader onClick={() => history.goBack()}>
-            <BackImage src={BackIcon} />
-          </RecruitDetailHeader>
-        )}
         <CheckLocation />
         <Screen path={'/list/all'} component={All} />
         <Screen path={'/list/recommend'} component={Recommend} />
