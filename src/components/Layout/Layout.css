@@ -5,7 +5,6 @@
     --kf_navigator_navbar-background: rgba(0,0,0,0) !important;
     --kf_navigator_navbar-center-mainWidth:286px;
     --kf_navigator_backgroundColor: rgba(0,0,0,0) !important;
-
 }
 ._1ok9ruld{
     padding-top: 0px !important;
@@ -14,10 +13,9 @@
     background: white !important;
     z-index: 98;
 }
-
 .x613ng0{
     position: fixed !important;
-    box-shadow: none !important;
+    /*box-shadow: none !important;*/
     z-index: 99;
 }
 .x613ng2{
@@ -26,7 +24,6 @@
 .hMafFi{
     padding-top: 40px !important;
 }
-
 .x613ng2{
     height: 44px !important;
 }
