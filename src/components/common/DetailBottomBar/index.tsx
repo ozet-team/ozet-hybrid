@@ -26,7 +26,9 @@ const DetailBottomBar = (props: { id: string }) => {
     });
   };
   useLayoutEffect(() => {
-    // getBookmarkHandler();
+    API.getJWT({ user_id: '9' }).then(() => {
+      getBookmarkHandler();
+    });
   }, []);
   const bookmarkHandler = () => {
     if (isBookMark) {
