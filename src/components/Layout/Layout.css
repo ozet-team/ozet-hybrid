@@ -1,16 +1,26 @@
 .navigateClean{
     transition: 0.3s;
-    /*--kf_navigator_navbar-height:0px !important;*/
-    position: sticky;
+    --kf_navigator_navbar-height:0px !important;
     top: 0;
     --kf_navigator_navbar-background: rgba(0,0,0,0) !important;
 }
 ._1ok9ruld{
-    /*padding: 0!important;*/
+    padding-top: 0px !important;
 }
-.x613ng4{
+
+.x613ng0{
+    position: fixed !important;
     background: rgba(0,0,0,0) !important;
+    box-shadow: none !important;
+    z-index: 99;
 }
+.x613ng2{
+    box-shadow: none !important;
+}
+.hMafFi{
+    padding-top: 40px !important;
+}
+
 
 .x613ng2{
     height: 44px !important;

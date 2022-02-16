@@ -88,15 +88,7 @@ export const RecruitmentMainText = styled.div`
   color: #000;
   min-height: 20px;
 `;
-export const RecruitDetailHeader = styled.div`
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  height: 44px;
-`;
+
 export const BackImage = styled.img`
   margin-left: 20px;
   height: 16px;

@@ -1,6 +1,9 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { useCurrentScreen, useParams } from '@karrotframe/navigator';
-// import { recruitmentDetailData } from '../../api/recruitmentDetailData';
+import {
+  ScreenHelmet,
+  useCurrentScreen,
+  useParams,
+} from '@karrotframe/navigator';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import SampleImage1 from '../../img/SampleImage1.png';
 import SampleImage2 from '../../img/SampleImage2.png';
@@ -13,8 +16,6 @@ import { paymentConvert } from '../../utils/hooks/paymentConvert';
 import { useRecoilState } from 'recoil';
 import { filterState } from '../../store/filter';
 import {
-  BackImage,
-  RecruitDetailHeader,
   RecruitmentCategory,
   RecruitmentCategoryText,
   RecruitmentElementWrapper,
@@ -27,8 +28,6 @@ import {
   SectionRowBar,
   StyledImage,
 } from './styled';
-import BackIcon from '../../img/iconBack.svg';
-import { useHistory } from 'react-router-dom';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
@@ -61,15 +60,12 @@ const RecruitmentDetail = () => {
   useLayoutEffect(() => {
     setToEnabledSwipe(isRoot);
   }, [isRoot]);
-  const history = useHistory();
 
   return (
     <>
       {detailData && (
         <>
-          <RecruitDetailHeader onClick={() => history.goBack()}>
-            <BackImage src={BackIcon} />
-          </RecruitDetailHeader>
+          <ScreenHelmet />
           <StyledImage image={defaultImage} />
           <RecruitmentWrapper>
             <RecruitmentTitle>{detailData.title}</RecruitmentTitle>
