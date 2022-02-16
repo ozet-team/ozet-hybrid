@@ -18,6 +18,7 @@ export const RecruitmentWrapper = styled.div`
   margin-left: 20px;
   margin-right: 20px;
   word-break: keep-all;
+  background: #fff;
 `;
 export const StyledImageWrapper = styled.div`
   height: 347px;
