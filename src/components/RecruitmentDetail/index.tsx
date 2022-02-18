@@ -61,6 +61,8 @@ const RecruitmentDetail = () => {
     setToEnabledSwipe(isRoot);
   }, [isRoot]);
 
+  console.log('deploytest ');
+
   return (
     <>
       {detailData && (
