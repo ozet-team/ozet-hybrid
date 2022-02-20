@@ -10,6 +10,7 @@ import { modalState, MODAL_KEY } from 'src/store/modal';
 import { Modal } from '../common/Modal';
 import ModalList, { ListItem } from '../common/Modal/components/List';
 import { useGetCities, useGetCountries } from 'src/api/hooks/useGetAddress';
+import IconClose from 'src/assets/icon_close.svg';
 
 const AddressFormContainer = styled.div`
   display: flex;
@@ -23,6 +24,34 @@ const FormItem = styled.div`
     font-size: 13px;
     color: #666666;
   }
+`;
+
+const AddressItemContainer = styled.div`
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 0;
+`;
+
+const AddressItem = styled.div`
+  height: 38px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 21px;
+  padding: 10px 12px 10px 16px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 12px;
+`;
+
+const AddressItemContent = styled.span`
+  font-size: 14px;
+  line-height: 17px;
+  color: #5d2fff;
+  padding-right: 8px;
 `;
 
 const AddressFilter = () => {
@@ -39,6 +68,10 @@ const AddressFilter = () => {
   useEffect(() => {
     setToEnabledSwipe(false);
   }, []);
+
+  useEffect(() => {
+    console.log(filter.city);
+  }, [filter]);
 
   return (
     <>
@@ -73,6 +106,21 @@ const AddressFilter = () => {
               </DropdownButton>
             </FormItem>
           )}
+
+          <AddressItemContainer>
+            {filter.city.map((item, index) => {
+              if (index && filter.country[index] && item.name !== '전체') {
+                return (
+                  <AddressItem key={index}>
+                    <AddressItemContent>
+                      {item.name} {filter.country[index].name}
+                    </AddressItemContent>
+                    <img src={IconClose} />
+                  </AddressItem>
+                );
+              }
+            })}
+          </AddressItemContainer>
         </AddressFormContainer>
         {modal.city && (
           <Modal type={MODAL_KEY.CITY} title="지역">
@@ -83,10 +131,6 @@ const AddressFilter = () => {
                     <ListItem
                       key={item.id}
                       onClick={() => {
-                        setFilter({
-                          ...filter,
-                          [FILTER_KEY.CITY]: [...filter.city, item],
-                        });
                         setCity(item);
                         setCountry({ id: 0, name: '' });
                       }}
@@ -111,8 +155,10 @@ const AddressFilter = () => {
                         setFilter({
                           ...filter,
                           [FILTER_KEY.COUNTRY]: [...filter.country, item],
+                          [FILTER_KEY.CITY]: [...filter.city, city],
                         });
-                        setCountry(item);
+                        setCity({ id: 0, name: '전국' });
+                        setCountry({ id: 0, name: '' });
                       }}
                     >
                       {item.name}
