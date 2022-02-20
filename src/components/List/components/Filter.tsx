@@ -10,14 +10,18 @@ import { filterState, FILTER_KEY } from 'src/store/filter';
 import { useNavigator } from '@karrotframe/navigator';
 
 const FilterWrapper = styled.div`
+  position: fixed;
+  top: 0px;
+  overflow-y: hidden;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  margin: 20px 0;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
   }
+  padding-top: calc(64px + env(safe-area-inset-top));
+  padding-left: 20px;
 `;
 
 const FilterItem = styled.div`
