@@ -30,6 +30,7 @@ export const Inner = styled(motion.div)`
   box-sizing: border-box;
   z-index: 3;
   background-color: white;
+  padding-bottom: env(safe-area-inset-bottom);
 `;
 
 export const FullTypeInner = styled(motion.div)`
