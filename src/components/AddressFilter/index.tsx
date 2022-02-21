@@ -66,6 +66,7 @@ const AddressFilter = () => {
   const [filter, setFilter] = useRecoilState(filterState);
 
   useEffect(() => {
+    console.log('2');
     setToEnabledSwipe(false);
   }, []);
 

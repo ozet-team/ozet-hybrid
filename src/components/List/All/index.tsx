@@ -11,14 +11,17 @@ import { useGetAnnouncements } from 'src/api/hooks/useGetAnnouncements';
 import { setToEnabledSwipe } from 'src/utils/bridge';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { filterSelector, filterState } from 'src/store/filter';
+import { useLocation } from 'react-router';
 
 const All = () => {
   const filter = useRecoilValue(filterSelector);
   const { data, loading } = useGetAnnouncements(filter);
 
+  const location = useLocation();
+
   useEffect(() => {
     setToEnabledSwipe(true);
-  }, []);
+  }, [location]);
 
   return (
     <>
