@@ -9,6 +9,7 @@ import {
 } from './styled';
 import BookMark from '../../../img/BookMark';
 import API from '../../../api/index';
+import { applyRecruitment } from '../../../utils/bridge';
 
 const DetailBottomBar = (props: { id: string }) => {
   const { id } = props;
@@ -55,7 +56,13 @@ const DetailBottomBar = (props: { id: string }) => {
           <BookMark fill={isBookMark ? '#5d2fff' : '#D7D8DB'} />
         </BookMarkBox>
         <FooterButtonWrapper>
-          <OzetButton>이력서 전송</OzetButton>
+          <OzetButton
+            onClick={() => {
+              applyRecruitment();
+            }}
+          >
+            이력서 전송
+          </OzetButton>
         </FooterButtonWrapper>
       </FooterInner>
     </DetailFooterWrapper>

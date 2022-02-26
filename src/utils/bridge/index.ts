@@ -49,3 +49,12 @@ export function setToEnabledSwipe(enabled = true) {
     );
   }
 }
+export function applyRecruitment() {
+  if (window.webkit) {
+    window.webkit.messageHandlers.callbackHandler.postMessage(
+      JSON.stringify({
+        event: 'apply',
+      }),
+    );
+  }
+}
