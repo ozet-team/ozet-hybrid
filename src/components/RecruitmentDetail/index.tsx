@@ -44,7 +44,6 @@ const RecruitmentDetail = () => {
   const [defaultImage, setDefaultImage] = useState('');
   const imageHandler = () => {
     const num = Number(detailData.id) % 3;
-    console.log(num);
     if (num == 0) {
       setDefaultImage(SampleImage1);
     }
@@ -62,9 +61,6 @@ const RecruitmentDetail = () => {
   useLayoutEffect(() => {
     setToEnabledSwipe(isRoot);
   }, [isRoot]);
-
-  console.log('deploytest ');
-
   return (
     <>
       {detailData && (
