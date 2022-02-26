@@ -28,6 +28,7 @@ import {
   SectionRowBar,
   StyledImage,
 } from './styled';
+import API from '../../api';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
@@ -42,14 +43,15 @@ const RecruitmentDetail = () => {
   const { isRoot } = useCurrentScreen();
   const [defaultImage, setDefaultImage] = useState('');
   const imageHandler = () => {
-    const num = Math.floor(Math.random() * 3) + 1;
-    if (num == 1) {
+    const num = Number(detailData.id) % 3;
+    console.log(num);
+    if (num == 0) {
       setDefaultImage(SampleImage1);
     }
-    if (num == 2) {
+    if (num == 1) {
       setDefaultImage(SampleImage2);
     }
-    if (num == 3) {
+    if (num == 2) {
       setDefaultImage(SampleImage3);
     }
   };

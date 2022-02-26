@@ -40,7 +40,7 @@ export class GuestBookApi {
   };
   getBookMark = () => {
     return axios.get<getBookmarkDataType>(
-      `${this.API}/announcement/bookmarks/`,
+      `${this.API}/announcement/bookmarks`,
       {
         headers: {
           Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
