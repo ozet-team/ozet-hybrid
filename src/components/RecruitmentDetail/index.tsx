@@ -28,22 +28,38 @@ import {
   SectionRowBar,
   StyledImage,
 } from './styled';
-import API from '../../api';
+import { recruitmentDetailDataType } from '../../api/types';
+import Api from '../../api';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
+  const [detailData, setDetailData] = useState<recruitmentDetailDataType>();
+  const { isRoot } = useCurrentScreen();
   const { id } = useParams<{ id: string }>();
+
   const { data }: any = useGetAnnouncements({
     salary: filter.salary,
     position: filter.position,
     city: filter.city,
     country: filter.country,
   });
-  const detailData = data?.find((value: any) => (value.id as string) == id);
-  const { isRoot } = useCurrentScreen();
+
+  useLayoutEffect(() => {
+    async function getAnnouncement(url: string) {
+      const res = await Api.getRecruitmentDetailData(url);
+      return res.data;
+    }
+    {
+      id &&
+        getAnnouncement(id).then((res) => {
+          setDetailData(res);
+        });
+    }
+  }, [id]);
+
   const [defaultImage, setDefaultImage] = useState('');
   const imageHandler = () => {
-    const num = Number(detailData.id) % 3;
+    const num = Number(detailData?.id) % 3;
     if (num == 0) {
       setDefaultImage(SampleImage1);
     }
@@ -56,7 +72,7 @@ const RecruitmentDetail = () => {
   };
   useLayoutEffect(() => {
     imageHandler();
-  }, []);
+  }, [detailData?.id]);
 
   useLayoutEffect(() => {
     setToEnabledSwipe(isRoot);

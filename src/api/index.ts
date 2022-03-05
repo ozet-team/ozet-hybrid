@@ -22,9 +22,9 @@ export class GuestBookApi {
     return axios.get<{ id: number; name: string }[]>(`${this.API}${url}`);
   };
 
-  getRecruitmentDetailData = (id: string) => {
+  getRecruitmentDetailData = (url: string) => {
     return axios.get<recruitmentDetailDataType>(
-      `${this.API}/announcement/announcements/${id}/`,
+      `${this.API}/announcement/announcements/${url}`,
     );
   };
   postBookMark = (payload: { announcementId: string }) => {
