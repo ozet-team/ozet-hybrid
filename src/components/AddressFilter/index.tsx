@@ -66,13 +66,18 @@ const AddressFilter = () => {
   const [filter, setFilter] = useRecoilState(filterState);
 
   useEffect(() => {
-    console.log('2');
     setToEnabledSwipe(false);
   }, []);
 
-  useEffect(() => {
-    console.log(filter.city);
-  }, [filter]);
+  const handleDeleteAddress = (cityId: number, countryId: number) => {
+    setFilter({
+      ...filter,
+      [FILTER_KEY.COUNTRY]: filter.country.filter(
+        (item) => item.id !== countryId,
+      ),
+      [FILTER_KEY.CITY]: filter.city.filter((item) => item.id !== cityId),
+    });
+  };
 
   return (
     <>
@@ -116,7 +121,12 @@ const AddressFilter = () => {
                     <AddressItemContent>
                       {item.name} {filter.country[index].name}
                     </AddressItemContent>
-                    <img src={IconClose} />
+                    <img
+                      src={IconClose}
+                      onClick={() =>
+                        handleDeleteAddress(item.id, filter.country[index].id)
+                      }
+                    />
                   </AddressItem>
                 );
               }
