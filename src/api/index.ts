@@ -1,7 +1,8 @@
 import axios, { Axios } from 'axios';
+import { nativeInfo } from 'src/utils/storage';
 import { recruitmentDetailData } from './recruitmentDetailData';
 import {
-  getBookmarkDataType,
+  BookmarkDataResponse,
   ListItemType,
   recruitmentDetailDataType,
 } from './types';
@@ -32,17 +33,17 @@ export class GuestBookApi {
       payload,
       {
         headers: {
-          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
         },
       },
     );
   };
   getBookMark = () => {
-    return axios.get<getBookmarkDataType>(
+    return axios.get<BookmarkDataResponse[]>(
       `${this.API}/announcement/bookmarks`,
       {
         headers: {
-          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
         },
       },
     );
@@ -52,7 +53,7 @@ export class GuestBookApi {
       `${this.API}/announcement/bookmarks/${id}`,
       {
         headers: {
-          Authorization: `JWT ${localStorage.getItem('jwtToken')}`,
+          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
         },
       },
     );

@@ -1,6 +1,6 @@
 import { useNavigator } from '@karrotframe/navigator';
 import React from 'react';
-import { ListItemType } from 'src/api/types';
+import { BookmarkDataResponse, ListItemType } from 'src/api/types';
 import styled from 'styled-components';
 import BookmarkImage from 'src/assets/bookmark.svg';
 import SampleImage1 from 'src/assets/SampleImage1.png';
@@ -49,15 +49,19 @@ const ListContent = styled.p`
   color: #939497;
 `;
 
-interface Props {
+interface Props<T> {
   children?: React.ReactElement;
-  list?: ListItemType[];
+  list?: ListItemType[] | T;
+  isBookMark?: boolean;
 }
 
-function ListContainer({ list }: Props) {
+function ListContainer<T extends Record<string, any>>({
+  list,
+  isBookMark,
+}: Props<T>) {
   const { push } = useNavigator();
 
-  const handleDefaultImage = (id: number) => {
+  const handleDefaultImage = (id: number | string) => {
     const num = Number(id) % 3;
     if (num == 0) {
       return SampleImage1;
@@ -68,10 +72,39 @@ function ListContainer({ list }: Props) {
     return SampleImage3;
   };
 
+  if (isBookMark) {
+    return (
+      <ListWrapper>
+        {list &&
+          list.map((item: BookmarkDataResponse) => (
+            <ListItem
+              key={item.announcement.id}
+              onClick={() => push(`/recruitment/detail/${item.id}`)}
+            >
+              {/* TODO */}
+              <BookmarkImageWrapper src={BookmarkImage} />
+              <ListImage
+                src={
+                  item.announcement.imageUrl ||
+                  handleDefaultImage(item.announcement.id)
+                }
+              />
+              <ListTitle>{item.announcement.title}</ListTitle>
+              <ListContent>{item.announcement.shopName}</ListContent>
+              <ListContent>
+                {/* TODO: */}
+                {/* {item.city} ・ {item.district} */}
+              </ListContent>
+            </ListItem>
+          ))}
+      </ListWrapper>
+    );
+  }
+
   return (
     <ListWrapper>
       {list &&
-        list.map((item) => (
+        list.map((item: any) => (
           <ListItem
             key={item.id}
             onClick={() => push(`/recruitment/detail/${item.id}`)}
