@@ -3,10 +3,8 @@ import { Navigator, Screen } from '@karrotframe/navigator';
 import All from '../List/All';
 import Recommend from '../List/Recommend';
 import Bookmarked from '../List/Bookmarked';
-import parser from 'ua-parser-js';
 import './Layout.css';
 
-const IOS = 'iOS';
 import RecruitmentDetail from '../RecruitmentDetail';
 import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
@@ -15,7 +13,6 @@ import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
 
 export const Layout = () => {
-  const { os } = parser(window.navigator.userAgent);
   const [navHandler, _] = useRecoilState(navState);
 
   return (
