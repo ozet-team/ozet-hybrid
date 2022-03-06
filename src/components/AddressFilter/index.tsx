@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScreenHelmet, useCurrentScreen } from '@karrotframe/navigator';
+import { ScreenHelmet } from '@karrotframe/navigator';
 import { LayoutContainer } from 'src/styles/layout';
 import DropdownButton from '../common/Button/Dropdown';
 import styled from 'styled-components';

@@ -1,5 +1,4 @@
 import axios, { Axios } from 'axios';
-import { sessionList } from './mock';
 import { recruitmentDetailData } from './recruitmentDetailData';
 import {
   getBookmarkDataType,

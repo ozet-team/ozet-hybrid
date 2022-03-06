@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Navigator, Screen, useLocation } from '@karrotframe/navigator';
+import React from 'react';
+import { Navigator, Screen } from '@karrotframe/navigator';
 import All from '../List/All';
 import Recommend from '../List/Recommend';
 import Bookmarked from '../List/Bookmarked';
 import parser from 'ua-parser-js';
-import DevTest from '../devTest';
 import './Layout.css';
 
 const IOS = 'iOS';
@@ -14,13 +13,10 @@ import { navState } from '../../store/navigation';
 import CheckLocation from '../common/CheckLocation';
 import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
-import NavigationColorHandler from '../NavigationColorHandler';
-import API from '../../api';
 
 export const Layout = () => {
   const { os } = parser(window.navigator.userAgent);
-  const isCupertino = os.name === IOS;
-  const [navHandler, setNavHandler] = useRecoilState(navState);
+  const [navHandler, _] = useRecoilState(navState);
 
   return (
     <>

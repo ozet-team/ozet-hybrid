@@ -1,6 +1,5 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import cx from 'classnames';
 import { FullTypeInner, Inner, LayerWrapper } from './styled';
 import { AnimatePresence } from 'framer-motion';
 
@@ -11,10 +10,6 @@ interface ModalProps {
   onOutsideClick?: () => void;
 }
 const ModalWrapper = ({ isFullType, children }: ModalProps) => {
-  const closeModal = useCallback(() => {
-    console.log('1');
-  }, []);
-
   return ReactDOM.createPortal(
     <LayerWrapper
       initial={{ opacity: 0 }}

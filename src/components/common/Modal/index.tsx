@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { useRecoilState } from 'recoil';
 import { modalState, MODAL_KEY } from 'src/store/modal';
 import ModalWrapper from './components/Wrapper';

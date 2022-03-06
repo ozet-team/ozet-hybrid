@@ -57,4 +57,5 @@ export interface ListItemType {
   shopName: string;
   title: string;
   workingHour: string;
+  imageUrl: string;
 }

@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
-// import sampleImage from '../../Sample/img.png';
 
 export const SectionColumnBar = styled.div`
   width: 1px;

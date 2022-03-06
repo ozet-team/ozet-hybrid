@@ -3,6 +3,9 @@ import React from 'react';
 import { ListItemType } from 'src/api/types';
 import styled from 'styled-components';
 import BookmarkImage from 'src/assets/bookmark.svg';
+import SampleImage1 from 'src/assets/SampleImage1.png';
+import SampleImage2 from 'src/assets/SampleImage2.png';
+import SampleImage3 from 'src/assets/SampleImage3.png';
 
 const ListWrapper = styled.div`
   display: flex;
@@ -46,15 +49,6 @@ const ListContent = styled.p`
   color: #939497;
 `;
 
-interface List {
-  id: number;
-  title: string;
-  shopName: string;
-  city: string;
-  district: string;
-  url: string;
-}
-
 interface Props {
   children?: React.ReactElement;
   list?: ListItemType[];
@@ -62,6 +56,17 @@ interface Props {
 
 function ListContainer({ list }: Props) {
   const { push } = useNavigator();
+
+  const handleDefaultImage = (id: number) => {
+    const num = Number(id) % 3;
+    if (num == 0) {
+      return SampleImage1;
+    }
+    if (num == 1) {
+      return SampleImage2;
+    }
+    return SampleImage3;
+  };
 
   return (
     <ListWrapper>
@@ -73,7 +78,7 @@ function ListContainer({ list }: Props) {
           >
             {/* TODO */}
             <BookmarkImageWrapper src={BookmarkImage} />
-            <ListImage src={'https://picsum.photos/200'} />
+            <ListImage src={item.imageUrl || handleDefaultImage(item.id)} />
             <ListTitle>{item.title}</ListTitle>
             <ListContent>{item.shopName}</ListContent>
             <ListContent>

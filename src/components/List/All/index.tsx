@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react';
-import {
-  ScreenHelmet,
-  useCurrentScreen,
-  useNavigator,
-} from '@karrotframe/navigator';
+import { ScreenHelmet } from '@karrotframe/navigator';
 import { LayoutContainer, ListLayoutContainer } from 'src/styles/layout';
 import ListContainer from '../components/ListContainer';
 import Filter from '../components/Filter';
 import { useGetAnnouncements } from 'src/api/hooks/useGetAnnouncements';
 import { setToEnabledSwipe } from 'src/utils/bridge';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { filterSelector, filterState } from 'src/store/filter';
+import { useRecoilValue } from 'recoil';
+import { filterSelector } from 'src/store/filter';
 import { useLocation } from 'react-router';
 
 const All = () => {
