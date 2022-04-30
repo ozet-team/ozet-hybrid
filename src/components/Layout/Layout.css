@@ -1,14 +1,17 @@
 .navigateClean {
   transition: 0.3s;
-  --kf_navigator_navbar-height: 0px !important;
   top: 0;
   --kf_navigator_navbar-background: rgba(0, 0, 0, 0) !important;
   --kf_navigator_navbar-center-mainWidth: 286px;
   --kf_navigator_backgroundColor: rgba(0, 0, 0, 0) !important;
+  --kf_navigator_navbar-center-textColor: rgba(0,0,0,0)!important;
+  --kf_navigator_navbar-height: 0 !important;
 }
-
 ._1ok9ruld {
   padding-top: 0px !important;
+}
+._1fqsxvyk, ._1fqsxvyl, ._1fqsxvym, ._1fqsxvyo{
+  background: #fff !important;
 }
 ._1ok9rulk {
   background: white !important;

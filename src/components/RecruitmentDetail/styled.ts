@@ -13,10 +13,12 @@ export const SectionRowBar = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
 `;
 export const RecruitmentWrapper = styled.div`
+  position: relative;
+  top: -5px;
   padding: 16px 20px;
   word-break: keep-all;
   background: #fff;
-  z-index: 999;
+  z-index: 90;
 `;
 export const StyledImageWrapper = styled.div`
   height: 347px;
