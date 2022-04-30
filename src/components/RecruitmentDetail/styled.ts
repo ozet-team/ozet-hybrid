@@ -13,10 +13,10 @@ export const SectionRowBar = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
 `;
 export const RecruitmentWrapper = styled.div`
-  margin-left: 20px;
-  margin-right: 20px;
+  padding: 16px 20px;
   word-break: keep-all;
   background: #fff;
+  z-index: 999;
 `;
 export const StyledImageWrapper = styled.div`
   height: 347px;
@@ -25,14 +25,14 @@ export const StyledImageWrapper = styled.div`
 
 export const StyledImage = styled.img<any>`
   box-sizing: border-box;
+  background-size: contain;
   height: 347px;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
-  background-size: 100% 347px;
-  background-repeat: no-repeat;
-  margin: 0 0 16px;
   background-image: url(${(props) => props.image});
+  position: sticky;
   top: 0;
+  z-index: -1;
   background-attachment: fixed;
 `;
 export const StyledMapSkeleton = styled.div`

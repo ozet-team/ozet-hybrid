@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { OzetButton } from '../OzetButton/styled';
 import {
   BookMarkBox,
@@ -26,7 +26,7 @@ const DetailBottomBar: React.FC<bottomBarProps> = ({
 }) => {
   const [isBookMark, setIsBookMark] = useState(false);
   const [deleteBookMark, setDeleteBookMark] = useState<string>('');
-  const [user] = useRecoilState(userState);
+  const [user, setUser] = useRecoilState(userState);
   const getBookmarkHandler = () => {
     try {
       id &&
