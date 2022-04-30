@@ -10,7 +10,7 @@ import { useRecoilState } from 'recoil';
 import { navState } from '../../store/navigation';
 import CheckLocation from '../common/CheckLocation';
 import AddressFilter from '../AddressFilter';
-import { backSwipe } from 'src/utils/bridge';
+import { backSwipe, getAccessToken } from 'src/utils/bridge';
 import { userState } from '../../store/user';
 import API from '../../api';
 
@@ -19,6 +19,7 @@ export const Layout = () => {
   const [user, setUser] = useRecoilState(userState);
   useEffect(() => {
     const getUser = async () => {
+      await getAccessToken();
       const res = await API.getUserMe();
       setUser({ ...res.data });
       console.log(res.data);
@@ -41,7 +42,6 @@ export const Layout = () => {
           path={'/recruitment/detail/:id'}
           component={RecruitmentDetail}
         />
-        <Screen path={'/resume/:id'} component={RecruitmentDetail} />
       </Navigator>
     </>
   );
