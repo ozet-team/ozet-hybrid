@@ -16,21 +16,21 @@ const DetailBottomBar = (props: { id: string }) => {
   const [isBookMark, setIsBookMark] = useState(false);
   const [deleteBookMark, setDeleteBookMark] = useState<string>('');
   const getBookmarkHandler = () => {
-    API.getBookMark().then((res) => {
-      if (res.data) {
-        const isBookMark = res.data
-          .map((item) => item.announcement.id.toString())
-          .indexOf(id);
-        setIsBookMark(isBookMark !== -1);
-        isBookMark !== -1 && setDeleteBookMark(res.data[isBookMark].id);
-      }
-    });
+    try {
+      API.getBookMark().then((res) => {
+        if (res.data) {
+          const isBookMark = res.data
+            .map((item) => item.announcement.id.toString())
+            .indexOf(id);
+          setIsBookMark(isBookMark !== -1);
+          isBookMark !== -1 && setDeleteBookMark(res.data[isBookMark].id);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
-  useLayoutEffect(() => {
-    API.getJWT({ user_id: '9' }).then(() => {
-      getBookmarkHandler();
-    });
-  }, []);
+
   const bookmarkHandler = () => {
     if (isBookMark) {
       API.deleteBookMark(deleteBookMark).then(() => {
@@ -43,6 +43,9 @@ const DetailBottomBar = (props: { id: string }) => {
       });
     }
   };
+  useLayoutEffect(() => {
+    getBookmarkHandler();
+  }, []);
 
   return (
     <DetailFooterWrapper>

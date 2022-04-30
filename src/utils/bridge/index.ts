@@ -49,6 +49,7 @@ export function setToEnabledSwipe(enabled = true) {
     );
   }
 }
+
 export function applyRecruitment() {
   if (window.webkit) {
     window.webkit.messageHandlers.callbackHandler.postMessage(
@@ -56,5 +57,7 @@ export function applyRecruitment() {
         event: 'apply',
       }),
     );
+  } else {
+    window?.webviewBridge?.apply();
   }
 }

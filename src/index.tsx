@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { getAccessToken } from './utils/bridge';
 import VConsole from 'vconsole';
+import { nativeInfo } from './utils/storage';
 
 function init() {
   const vConsole = new VConsole();

@@ -33,7 +33,7 @@ export class GuestBookApi {
       payload,
       {
         headers: {
-          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
+          Authorization: `${nativeInfo.getData().accessToken}`,
         },
       },
     );
@@ -43,7 +43,7 @@ export class GuestBookApi {
       `${this.API}/announcement/bookmarks`,
       {
         headers: {
-          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
+          Authorization: `${nativeInfo.getData().accessToken}`,
         },
       },
     );
@@ -53,7 +53,7 @@ export class GuestBookApi {
       `${this.API}/announcement/bookmarks/${id}`,
       {
         headers: {
-          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
+          Authorization: `${nativeInfo.getData().accessToken}`,
         },
       },
     );
