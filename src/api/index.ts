@@ -5,6 +5,7 @@ import {
   BookmarkDataResponse,
   ListItemType,
   recruitmentDetailDataType,
+  userMeDataType,
 } from './types';
 
 export class GuestBookApi {
@@ -33,7 +34,7 @@ export class GuestBookApi {
       payload,
       {
         headers: {
-          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
+          Authorization: `${nativeInfo.getData().accessToken}`,
         },
       },
     );
@@ -43,7 +44,7 @@ export class GuestBookApi {
       `${this.API}/announcement/bookmarks`,
       {
         headers: {
-          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
+          Authorization: `${nativeInfo.getData().accessToken}`,
         },
       },
     );
@@ -53,10 +54,17 @@ export class GuestBookApi {
       `${this.API}/announcement/bookmarks/${id}`,
       {
         headers: {
-          Authorization: `JWT ${nativeInfo.getData().accessToken}`,
+          Authorization: `${nativeInfo.getData().accessToken}`,
         },
       },
     );
+  };
+  getUserMe = () => {
+    return axios.get<userMeDataType>(`${this.API}/member/user/me`, {
+      headers: {
+        Authorization: `${nativeInfo.getData().accessToken}`,
+      },
+    });
   };
   getJWT = (payload: { user_id: string }) => {
     return axios

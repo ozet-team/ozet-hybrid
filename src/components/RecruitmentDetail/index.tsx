@@ -157,7 +157,11 @@ const RecruitmentDetail = () => {
               <KakaoMap x={detailData.shopLocation} />
             )}
           </RecruitmentWrapper>
-          <DetailBottomBar id={id as string} />
+          <DetailBottomBar
+            id={id}
+            announcementTitle={detailData.title}
+            shopName={detailData.shopName}
+          />
         </>
       )}
     </>

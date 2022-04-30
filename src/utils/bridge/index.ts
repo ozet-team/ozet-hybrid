@@ -1,4 +1,5 @@
 import { nativeInfo } from '../storage';
+import { bridgeApplyDataType } from '../../api/types';
 
 function setAccessToken(accessToken: string) {
   console.log('setAccessToken', accessToken);
@@ -49,12 +50,18 @@ export function setToEnabledSwipe(enabled = true) {
     );
   }
 }
-export function applyRecruitment() {
+
+export function applyRecruitment(applyData: bridgeApplyDataType) {
   if (window.webkit) {
     window.webkit.messageHandlers.callbackHandler.postMessage(
       JSON.stringify({
         event: 'apply',
+        applyUser: applyData,
       }),
     );
+  } else {
+    window?.webviewBridge?.apply({
+      applyUser: applyData,
+    });
   }
 }
