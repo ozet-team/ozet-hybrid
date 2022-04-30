@@ -27,14 +27,6 @@ const DetailBottomBar: React.FC<bottomBarProps> = ({
   const [isBookMark, setIsBookMark] = useState(false);
   const [deleteBookMark, setDeleteBookMark] = useState<string>('');
   const [user, setUser] = useRecoilState(userState);
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     const res = await API.getUserMe();
-  //     setUser({ ...res.data });
-  //     console.log(res.data);
-  //   };
-  //   getUser();
-  // }, []);
   const getBookmarkHandler = () => {
     try {
       id &&

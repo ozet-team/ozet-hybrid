@@ -13,18 +13,17 @@ import AddressFilter from '../AddressFilter';
 import { backSwipe, getAccessToken } from 'src/utils/bridge';
 import { userState } from '../../store/user';
 import API from '../../api';
+import { nativeInfo } from '../../utils/storage';
 
 export const Layout = () => {
   const [navHandler, _] = useRecoilState(navState);
   const [user, setUser] = useRecoilState(userState);
+  const getUser = async () => {
+    const res = await API.getUserMe();
+    setUser({ ...res.data });
+  };
   useEffect(() => {
-    const getUser = async () => {
-      await getAccessToken();
-      const res = await API.getUserMe();
-      setUser({ ...res.data });
-      console.log(res.data);
-    };
-    getUser();
+    nativeInfo.getData().accessToken && getUser();
   }, []);
   return (
     <>

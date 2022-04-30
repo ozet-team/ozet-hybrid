@@ -17,6 +17,7 @@ export const RecruitmentWrapper = styled.div`
   margin-right: 20px;
   word-break: keep-all;
   background: #fff;
+  z-index: 1;
 `;
 export const StyledImageWrapper = styled.div`
   height: 347px;
@@ -32,8 +33,9 @@ export const StyledImage = styled.img<any>`
   background-repeat: no-repeat;
   margin: 0 0 16px;
   background-image: url(${(props) => props.image});
-  top: 0;
   background-attachment: fixed;
+  top: 0;
+  z-index: 0;
 `;
 export const StyledMapSkeleton = styled.div`
   height: 150px;
