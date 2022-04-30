@@ -30,6 +30,7 @@ import {
 } from './styled';
 import { recruitmentDetailDataType } from '../../api/types';
 import Api from '../../api';
+import './RecruitmentDetail.css';
 
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);

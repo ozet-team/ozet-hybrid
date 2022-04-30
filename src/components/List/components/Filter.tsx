@@ -20,7 +20,7 @@ const FilterWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  padding-top: calc(64px + env(safe-area-inset-top));
+  padding-top: calc(20px + env(safe-area-inset-top));
   padding-left: 20px;
 `;
 
