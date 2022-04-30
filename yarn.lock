@@ -1552,10 +1552,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@karrotframe/navigator@^0.18.0":
+"@karrotframe/navigator-legacy@0.18.0":
   version "0.18.0"
-  resolved "https://registry.npmjs.org/@karrotframe/navigator/-/navigator-0.18.0.tgz#bdb2fb682dd74488f86d04d47318e88aa278dbb9"
-  integrity sha512-T2Q+hHvNt+ICBQdqUMBsoUFExvb1/ci2XxXh6NYyZZBfpsNrU3NSsCmBLwjT+iGRjgapWrYnxZkEu4wRuA+vGg==
+  resolved "https://registry.yarnpkg.com/@karrotframe/navigator-legacy/-/navigator-legacy-0.18.0.tgz#af86e874aeb0a44396186cdc134a1af4df654bbb"
+  integrity sha512-4GTHMWy2Dqls44t+ckmLfoBwQ3tJFgBPY5nL/9k9OA2xNuDavfbfy6XT8LcLuo7VZZcpgVTHSC+9o5YZSMhSDA==
   dependencies:
     "@types/history" "^4.0.0"
     "@types/react-router" "^5.0.0"

@@ -1,4 +1,4 @@
-import { useNavigator } from '@karrotframe/navigator';
+import { useNavigator } from '@karrotframe/navigator-legacy';
 import React from 'react';
 import { BookmarkDataResponse, ListItemType } from 'src/api/types';
 import styled from 'styled-components';

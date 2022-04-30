@@ -7,7 +7,7 @@ import { modalState, MODAL_KEY } from 'src/store/modal';
 import ModalList from 'src/components/common/Modal/components/List';
 import { position, salary } from 'src/constants/list';
 import { filterState, FILTER_KEY } from 'src/store/filter';
-import { useNavigator } from '@karrotframe/navigator';
+import { useNavigator } from '@karrotframe/navigator-legacy';
 
 const FilterWrapper = styled.div`
   position: fixed;

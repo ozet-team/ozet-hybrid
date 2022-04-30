@@ -3,7 +3,7 @@ import {
   ScreenHelmet,
   useCurrentScreen,
   useParams,
-} from '@karrotframe/navigator';
+} from '@karrotframe/navigator-legacy';
 import DetailBottomBar from 'src/components/common/DetailBottomBar';
 import SampleImage1 from '../../img/SampleImage1.png';
 import SampleImage2 from '../../img/SampleImage2.png';

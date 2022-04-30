@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ScreenHelmet } from '@karrotframe/navigator';
+import { ScreenHelmet } from '@karrotframe/navigator-legacy';
 import { LayoutContainer, ListLayoutContainer } from 'src/styles/layout';
 import ListContainer from '../components/ListContainer';
 import Filter from '../components/Filter';
