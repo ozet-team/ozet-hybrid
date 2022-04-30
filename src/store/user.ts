@@ -1,5 +1,6 @@
 import { atom, selector } from 'recoil';
 import API from '../api/index';
+import { getAccessToken } from '../utils/bridge';
 
 const USER = 'user';
 const USER_SELECTOR = 'userSelector';

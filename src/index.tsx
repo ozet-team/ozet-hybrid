@@ -8,7 +8,6 @@ import { nativeInfo } from './utils/storage';
 
 function init() {
   const vConsole = new VConsole();
-
   getAccessToken();
   try {
     ReactDOM.render(
