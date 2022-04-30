@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigator, Screen } from '@karrotframe/navigator';
 import All from '../List/All';
 import Recommend from '../List/Recommend';
@@ -11,9 +11,15 @@ import { navState } from '../../store/navigation';
 import CheckLocation from '../common/CheckLocation';
 import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
+import { userSelector, userState } from '../../store/user';
 
 export const Layout = () => {
   const [navHandler, _] = useRecoilState(navState);
+  const [selector, setSelector] = useRecoilState(userSelector);
+
+  useEffect(() => {
+    setSelector(selector);
+  }, []);
 
   return (
     <>

@@ -5,6 +5,7 @@ import {
   BookmarkDataResponse,
   ListItemType,
   recruitmentDetailDataType,
+  userMeDataType,
 } from './types';
 
 export class GuestBookApi {
@@ -57,6 +58,13 @@ export class GuestBookApi {
         },
       },
     );
+  };
+  getUserMe = () => {
+    return axios.get<userMeDataType>(`${this.API}/member/user/me`, {
+      headers: {
+        Authorization: `${nativeInfo.getData().accessToken}`,
+      },
+    });
   };
   getJWT = (payload: { user_id: string }) => {
     return axios

@@ -58,3 +58,29 @@ export interface ListItemType {
   workingHour: string;
   imageUrl: string;
 }
+export interface bridgeApplyDataType {
+  name: string;
+  shopName: string;
+  announcementTitle: string;
+  resumeURL: string;
+  phoneNumber: string;
+}
+export interface userMeDataType {
+  username: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  birthday: string;
+  gender: string;
+  introduce: string;
+  address: string;
+  profileImage: string;
+  policyForTermsAgreed: string;
+  policyForPrivacyAgreed: string;
+  snsList: [
+    {
+      username: string;
+      url: string;
+    },
+  ];
+}
