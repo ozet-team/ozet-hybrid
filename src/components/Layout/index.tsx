@@ -11,16 +11,20 @@ import { navState } from '../../store/navigation';
 import CheckLocation from '../common/CheckLocation';
 import AddressFilter from '../AddressFilter';
 import { backSwipe } from 'src/utils/bridge';
-import { userSelector, userState } from '../../store/user';
+import { userState } from '../../store/user';
+import API from '../../api';
 
 export const Layout = () => {
   const [navHandler, _] = useRecoilState(navState);
-  const [selector, setSelector] = useRecoilState(userSelector);
-
+  const [user, setUser] = useRecoilState(userState);
   useEffect(() => {
-    setSelector(selector);
+    const getUser = async () => {
+      const res = await API.getUserMe();
+      setUser({ ...res.data });
+      console.log(res.data);
+    };
+    getUser();
   }, []);
-
   return (
     <>
       <Navigator

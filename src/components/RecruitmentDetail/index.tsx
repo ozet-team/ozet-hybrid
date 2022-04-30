@@ -34,6 +34,7 @@ import Api from '../../api';
 const RecruitmentDetail = () => {
   const [filter] = useRecoilState(filterState);
   const [detailData, setDetailData] = useState<recruitmentDetailDataType>();
+
   const { isRoot } = useCurrentScreen();
   const { id } = useParams<{ id: string }>();
 
