@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScreenHelmet } from '@karrotframe/navigator';
+import { ScreenHelmet } from '@karrotframe/navigator-legacy';
 
 const Recommend = () => {
   return (

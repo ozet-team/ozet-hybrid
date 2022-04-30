@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Navigator, Screen } from '@karrotframe/navigator';
+import { Navigator, Screen } from '@karrotframe/navigator-legacy';
 import All from '../List/All';
 import Recommend from '../List/Recommend';
 import Bookmarked from '../List/Bookmarked';
