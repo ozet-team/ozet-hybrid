@@ -67,7 +67,7 @@ const DetailBottomBar: React.FC<bottomBarProps> = ({
     }
   };
   useLayoutEffect(() => {
-    // getBookmarkHandler();
+    getBookmarkHandler();
   }, []);
 
   return (
