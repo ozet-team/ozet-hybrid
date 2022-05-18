@@ -66,6 +66,7 @@ export interface bridgeApplyDataType {
   phoneNumber: string;
 }
 export interface userMeDataType {
+  id: number;
   username: string;
   name: string;
   email: string;
