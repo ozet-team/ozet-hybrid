@@ -26,7 +26,6 @@ const DetailBottomBar: React.FC<bottomBarProps> = ({
 }) => {
   const [isBookMark, setIsBookMark] = useState(false);
   const [deleteBookMark, setDeleteBookMark] = useState<string>('');
-  const [user, setUser] = useRecoilState(userState);
   const getBookmarkHandler = () => {
     try {
       id &&
@@ -43,13 +42,14 @@ const DetailBottomBar: React.FC<bottomBarProps> = ({
       console.log(error);
     }
   };
-  const applyRecruitmentHandler = () => {
-    applyRecruitment({
-      name: user.name,
+  const applyRecruitmentHandler = async () => {
+    const userData = await API.getUserMe();
+    await applyRecruitment({
+      name: userData.data.name,
       shopName: shopName,
       announcementTitle: announcementTitle,
-      resumeURL: 'string',
-      phoneNumber: user.phoneNumber,
+      resumeURL: `https://web.ozet.app/resume/${userData.data.id}`,
+      phoneNumber: userData.data.phoneNumber,
     });
   };
 
